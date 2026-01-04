@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.23">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="author" content="Pedro Navaja">
+<meta name="description" content="Viendo si con los datos de pingüinos se aprecia la paradoja de Simpson">
+<title>Los pingüinos molan – Título de mi website</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./imagenes/my_favicon_uv.jpeg" rel="icon" type="image/jpeg">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-631ded8afafd89da02f6c04f3e24cdd8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-8d51947209f6792dca7048803c219a21.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": true,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la busqueda",
+    "search-hide-matches-text": "Esconder resultados adicionales",
+    "search-more-match-text": "hay más resultados en este documento",
+    "search-more-matches-text": "más resultados en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script><style>html{ scroll-behavior: smooth; }</style>
+<style>
+
+      .quarto-title-block .quarto-title-banner h1,
+      .quarto-title-block .quarto-title-banner h2,
+      .quarto-title-block .quarto-title-banner h3,
+      .quarto-title-block .quarto-title-banner h4,
+      .quarto-title-block .quarto-title-banner h5,
+      .quarto-title-block .quarto-title-banner h6
+      {
+        color: red;
+      }
+
+      .quarto-title-block .quarto-title-banner {
+        color: red;
+      }
+</style>
+<link rel="shortcut icon" href="imagenes/uv.jpeg">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./imagenes/uv.jpg" alt="" class="navbar-logo light-content"><img src="./imagenes/uv.jpg" alt="" class="navbar-logo dark-content"></a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Título de mi website</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Buscar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navegación de palanca" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+<li class="nav-item compact">
+    <a class="nav-link" href="./index.html"> <i class="bi bi-house-door" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+<ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class="nav-item">
+    <a class="nav-link active" href="./my_trabajo_BigData.html" aria-current="page"> 
+<span class="menu-text">Trabajo individual</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/lbellidoa"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="mailto:lubea2@alumni.uv.es"> <i class="bi bi-envelope" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+</div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page-left">
+      <div class="quarto-title-block"><div><h1 class="title">Los pingüinos molan</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Código</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Enseñar el código</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Esconder el código</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">Ver el código</a></li></ul></div></div>
+                  <div>
+        <div class="description">
+          <p>Viendo si con los datos de pingüinos se aprecia la paradoja de Simpson</p>
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">trabajo BigData</div>
+                <div class="quarto-category">pinguinos</div>
+              </div>
+                  </div>
+  </div>
+    
+  <div class="quarto-title-meta-author column-page-left">
+    <div class="quarto-title-meta-heading">Autor</div>
+    <div class="quarto-title-meta-heading">Afiliación</div>
+    
+      <div class="quarto-title-meta-contents">
+      <p class="author">Pedro Navaja </p>
+    </div>
+    <div class="quarto-title-meta-contents">
+          <p class="affiliation">
+              <a href="https://www.uv.es">
+              Universitat de València
+              </a>
+            </p>
+        </div>
+    </div>
+
+  <div class="quarto-title-meta column-page-left">
+
+        
+      <div>
+      <div class="quarto-title-meta-heading">Fecha de Publicación</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">1 de noviembre de 2022</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Índice</h2>
+   
+  <ul>
+<li><a href="#intro" id="toc-intro" class="nav-link active" data-scroll-target="#intro">Intro</a></li>
+  <li><a href="#los-ping%C3%BCinos-molan" id="toc-los-pingüinos-molan" class="nav-link" data-scroll-target="#los-ping%C3%BCinos-molan">Los pingüinos molan</a></li>
+  <li>
+<a href="#algunos-gr%C3%A1ficos" id="toc-algunos-gráficos" class="nav-link" data-scroll-target="#algunos-gr%C3%A1ficos">Algunos gráficos</a>
+  <ul class="collapse">
+<li><a href="#primer-gr%C3%A1fico" id="toc-primer-gráfico" class="nav-link" data-scroll-target="#primer-gr%C3%A1fico">Primer gráfico</a></li>
+  <li><a href="#segundo" id="toc-segundo" class="nav-link" data-scroll-target="#segundo">Segundo</a></li>
+  <li><a href="#el-%C3%BAltimo" id="toc-el-último" class="nav-link" data-scroll-target="#el-%C3%BAltimo">El último</a></li>
+  <li><a href="#informaci%C3%B3n-sobre-la-sesi%C3%B3n" id="toc-información-sobre-la-sesión" class="nav-link" data-scroll-target="#informaci%C3%B3n-sobre-la-sesi%C3%B3n">Información sobre la sesión</a></li>
+  </ul>
+</li>
+  </ul><div class="quarto-other-links"><h2>Otros Enlaces</h2><ul><li><a href="https://perezp44.github.io/intro-ds-25-26-web/"><i class="bi bi-link-45deg"></i>Web del curso</a></li><li><a href="https://perezp44.github.io/intro-ds-25-26-web/05-trabajos-estudiantes.html"><i class="bi bi-link-45deg"></i>Trabajos de mis compañeros</a></li><li><a href="https://github.com/perezp44/trabajo_BigData_individual"><i class="bi bi-link-45deg"></i>Repo del trabajo</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block page-columns page-full column-page-left" id="quarto-document-content"><section id="intro" class="level2"><h2 class="anchored" data-anchor-id="intro">Intro</h2>
+<p>Vamos a utilizar datos del paquete <code>palmerpenguins</code>. El repo del paquete en CRAN está <a href="https://cran.r-project.org/web/packages/palmerpenguins/index.html">aquí</a>, el repo de Github está <a href="https://github.com/allisonhorst/palmerpenguins">aquí</a> y la página web del paquete está <a href="https://allisonhorst.github.io/palmerpenguins/">aquí</a>.</p>
+<p>Los datos se pueden cargar en la memoria de de R/RStudio de esta forma:</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold"><summary>Código</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># install.packages("palmerpenguins")</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb1-3"><a href="#cb1-3"></a>df <span class="ot">&lt;-</span> palmerpenguins<span class="sc">::</span>penguins</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>El dataset contiene observaciones sobre un conjunto de 344 pingüinos de 3 especies. Hay 8 variables.</p>
+<hr></section><section id="los-pingüinos-molan" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="los-pingüinos-molan">Los pingüinos molan</h2>
+<p>Vamos a ver una foto de un pingüinos</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><a href="https://upload.wikimedia.org/wikipedia/commons/a/a9/Ping%C3%BCinos.JPG?20090406212143" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Un pingüino chulo"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Ping%C3%BCinos.JPG?20090406212143" class="img-fluid figure-img" alt="Un pingüino chulo"></a></p>
+<figcaption>Un pingüino chulo</figcaption></figure>
+</div>
+<hr>
+<p>Sí, lo pingüinos molan, así que vamos a poner otra foto de pingüinos que tenemos en nuestro PC pero la vamos a poner en el margen:</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><a href="./imagenes/imagen_01.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="./imagenes/imagen_01.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></a></p>
+</figure>
+</div>
+</div></div><hr></section><section id="algunos-gráficos" class="level2"><h2 class="anchored" data-anchor-id="algunos-gráficos">Algunos gráficos</h2>
+<p>Bueno pues vamos a hacer algún gráfico, pero claro antes he de cargar los paquetes</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold"><summary>Código</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>Arreglo los datos</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold"><summary>Código</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">#- cojos datos de pingüinos y arreglo un poco </span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>df <span class="ot">&lt;-</span> palmerpenguins<span class="sc">::</span>penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb3-3"><a href="#cb3-3"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(species, bill_depth_mm, body_mass_g) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-4"><a href="#cb3-4"></a>  tidyr<span class="sc">::</span><span class="fu">drop_na</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<hr>
+<section id="primer-gráfico" class="level3"><h3 class="anchored" data-anchor-id="primer-gráfico">Primer gráfico</h3>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold"><summary>Código</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">#- primer gráfico</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> df, </span>
+<span id="cb4-3"><a href="#cb4-3"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, <span class="at">y =</span> body_mass_g, <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a>     <span class="fu">geom_point</span>()</span>
+<span id="cb4-5"><a href="#cb4-5"></a>p</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><a href="my_trabajo_BigData_files/figure-html/unnamed-chunk-5-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="my_trabajo_BigData_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<hr></section><section id="segundo" class="level3"><h3 class="anchored" data-anchor-id="segundo">Segundo</h3>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold"><summary>Código</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">#- segundo gráfico</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) </span>
+<span id="cb5-3"><a href="#cb5-3"></a></span>
+<span id="cb5-4"><a href="#cb5-4"></a>p</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><a href="my_trabajo_BigData_files/figure-html/unnamed-chunk-6-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="my_trabajo_BigData_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<hr></section><section id="el-último" class="level3"><h3 class="anchored" data-anchor-id="el-último">El último</h3>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold"><summary>Código</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">#- tercer gráfico</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>p <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">"black"</span>) </span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><a href="my_trabajo_BigData_files/figure-html/unnamed-chunk-7-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="my_trabajo_BigData_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p><br></p>
+<p>Con esto acabo mi trabajo para BigData!!</p>
+<p><br></p>
+<hr>
+<p><br></p>
+</section><section id="información-sobre-la-sesión" class="level3"><h3 class="anchored" data-anchor-id="información-sobre-la-sesión">Información sobre la sesión</h3>
+<p>Abajo muestro mi entorno de trabajo y paquetes utilizados</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<details closed=""><summary><span title="Click to Expand"> current session info </span>
+</summary><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a></span>
+<span id="cb7-2"><a href="#cb7-2"></a>─ Session info ───────────────────────────────────────────────────────────────</span>
+<span id="cb7-3"><a href="#cb7-3"></a> setting  value</span>
+<span id="cb7-4"><a href="#cb7-4"></a> version  R version <span class="dv">4</span>.<span class="fl">5.1</span> (<span class="dv">2025-06-13</span> ucrt)</span>
+<span id="cb7-5"><a href="#cb7-5"></a> os       Windows <span class="dv">11</span> <span class="fu">x64</span> (build <span class="dv">26100</span>)</span>
+<span id="cb7-6"><a href="#cb7-6"></a> system   x86_64, mingw32</span>
+<span id="cb7-7"><a href="#cb7-7"></a> ui       RTerm</span>
+<span id="cb7-8"><a href="#cb7-8"></a> <span class="fu">language</span> (EN)</span>
+<span id="cb7-9"><a href="#cb7-9"></a> collate  Spanish_Spain.utf8</span>
+<span id="cb7-10"><a href="#cb7-10"></a> ctype    Spanish_Spain.utf8</span>
+<span id="cb7-11"><a href="#cb7-11"></a> tz       Europe<span class="sc">/</span>Madrid</span>
+<span id="cb7-12"><a href="#cb7-12"></a> date     <span class="dv">2025-12-03</span></span>
+<span id="cb7-13"><a href="#cb7-13"></a> pandoc   <span class="fl">3.4</span> <span class="sc">@</span> C<span class="sc">:</span><span class="er">/</span>Program Files<span class="sc">/</span>RStudio<span class="sc">/</span>resources<span class="sc">/</span>app<span class="sc">/</span>bin<span class="sc">/</span>quarto<span class="sc">/</span>bin<span class="sc">/</span>tools<span class="sc">/</span> (via rmarkdown)</span>
+<span id="cb7-14"><a href="#cb7-14"></a> quarto   <span class="cn">NA</span> <span class="sc">@</span> C<span class="sc">:</span>\\Users\\lucib\\AppData\\Local\\Programs\\Quarto\\bin\\quarto.exe</span>
+<span id="cb7-15"><a href="#cb7-15"></a></span>
+<span id="cb7-16"><a href="#cb7-16"></a>─ Packages ───────────────────────────────────────────────────────────────────</span>
+<span id="cb7-17"><a href="#cb7-17"></a> package        <span class="sc">*</span> version <span class="fu">date</span> (UTC) lib source</span>
+<span id="cb7-18"><a href="#cb7-18"></a> cli              <span class="dv">3</span>.<span class="fl">6.5</span>   <span class="dv">2025-04-23</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-19"><a href="#cb7-19"></a> clipr            <span class="dv">0</span>.<span class="fl">8.0</span>   <span class="dv">2022-02-22</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-20"><a href="#cb7-20"></a> desc             <span class="dv">1</span>.<span class="fl">4.3</span>   <span class="dv">2023-12-10</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-21"><a href="#cb7-21"></a> details          <span class="dv">0</span>.<span class="fl">4.0</span>   <span class="dv">2025-02-09</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.2</span>)</span>
+<span id="cb7-22"><a href="#cb7-22"></a> digest           <span class="dv">0</span>.<span class="fl">6.37</span>  <span class="dv">2024-08-19</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-23"><a href="#cb7-23"></a> dplyr          <span class="sc">*</span> <span class="dv">1</span>.<span class="fl">1.4</span>   <span class="dv">2023-11-17</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-24"><a href="#cb7-24"></a> evaluate         <span class="dv">1</span>.<span class="fl">0.5</span>   <span class="dv">2025-08-27</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-25"><a href="#cb7-25"></a> farver           <span class="dv">2</span>.<span class="fl">1.2</span>   <span class="dv">2024-05-13</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-26"><a href="#cb7-26"></a> fastmap          <span class="dv">1</span>.<span class="fl">2.0</span>   <span class="dv">2024-05-15</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-27"><a href="#cb7-27"></a> forcats        <span class="sc">*</span> <span class="dv">1</span>.<span class="fl">0.0</span>   <span class="dv">2023-01-29</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-28"><a href="#cb7-28"></a> generics         <span class="dv">0</span>.<span class="fl">1.4</span>   <span class="dv">2025-05-09</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-29"><a href="#cb7-29"></a> ggplot2        <span class="sc">*</span> <span class="dv">4</span>.<span class="fl">0.0</span>   <span class="dv">2025-09-11</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-30"><a href="#cb7-30"></a> glue             <span class="dv">1</span>.<span class="fl">8.0</span>   <span class="dv">2024-09-30</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-31"><a href="#cb7-31"></a> gtable           <span class="dv">0</span>.<span class="fl">3.6</span>   <span class="dv">2024-10-25</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-32"><a href="#cb7-32"></a> hms              <span class="dv">1</span>.<span class="fl">1.3</span>   <span class="dv">2023-03-21</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-33"><a href="#cb7-33"></a> htmltools        <span class="dv">0</span>.<span class="dv">5</span>.<span class="fl">8.1</span> <span class="dv">2024-04-04</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-34"><a href="#cb7-34"></a> htmlwidgets      <span class="dv">1</span>.<span class="fl">6.4</span>   <span class="dv">2023-12-06</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-35"><a href="#cb7-35"></a> httr             <span class="dv">1</span>.<span class="fl">4.7</span>   <span class="dv">2023-08-15</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-36"><a href="#cb7-36"></a> jsonlite         <span class="dv">2</span>.<span class="fl">0.0</span>   <span class="dv">2025-03-27</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-37"><a href="#cb7-37"></a> knitr            <span class="fl">1.50</span>    <span class="dv">2025-03-16</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-38"><a href="#cb7-38"></a> labeling         <span class="dv">0</span>.<span class="fl">4.3</span>   <span class="dv">2023-08-29</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.0</span>)</span>
+<span id="cb7-39"><a href="#cb7-39"></a> lattice          <span class="fl">0.22</span><span class="dv">-7</span>  <span class="dv">2025-04-02</span> [<span class="dv">2</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-40"><a href="#cb7-40"></a> lifecycle        <span class="dv">1</span>.<span class="fl">0.4</span>   <span class="dv">2023-11-07</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-41"><a href="#cb7-41"></a> lubridate      <span class="sc">*</span> <span class="dv">1</span>.<span class="fl">9.4</span>   <span class="dv">2024-12-08</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-42"><a href="#cb7-42"></a> magrittr         <span class="dv">2</span>.<span class="fl">0.3</span>   <span class="dv">2022-03-30</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-43"><a href="#cb7-43"></a> Matrix           <span class="fl">1.7</span><span class="dv">-3</span>   <span class="dv">2025-03-11</span> [<span class="dv">2</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-44"><a href="#cb7-44"></a> mgcv             <span class="fl">1.9</span><span class="dv">-3</span>   <span class="dv">2025-04-04</span> [<span class="dv">2</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-45"><a href="#cb7-45"></a> nlme             <span class="fl">3.1</span><span class="dv">-168</span> <span class="dv">2025-03-31</span> [<span class="dv">2</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-46"><a href="#cb7-46"></a> palmerpenguins <span class="sc">*</span> <span class="dv">0</span>.<span class="fl">1.1</span>   <span class="dv">2022-08-15</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-47"><a href="#cb7-47"></a> pillar           <span class="dv">1</span>.<span class="fl">11.1</span>  <span class="dv">2025-09-17</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-48"><a href="#cb7-48"></a> pkgconfig        <span class="dv">2</span>.<span class="fl">0.3</span>   <span class="dv">2019-09-22</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-49"><a href="#cb7-49"></a> png              <span class="fl">0.1</span><span class="dv">-8</span>   <span class="dv">2022-11-29</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.0</span>)</span>
+<span id="cb7-50"><a href="#cb7-50"></a> purrr          <span class="sc">*</span> <span class="dv">1</span>.<span class="fl">1.0</span>   <span class="dv">2025-07-10</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-51"><a href="#cb7-51"></a> R6               <span class="dv">2</span>.<span class="fl">6.1</span>   <span class="dv">2025-02-15</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-52"><a href="#cb7-52"></a> RColorBrewer     <span class="fl">1.1</span><span class="dv">-3</span>   <span class="dv">2022-04-03</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.0</span>)</span>
+<span id="cb7-53"><a href="#cb7-53"></a> readr          <span class="sc">*</span> <span class="dv">2</span>.<span class="fl">1.5</span>   <span class="dv">2024-01-10</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-54"><a href="#cb7-54"></a> rlang            <span class="dv">1</span>.<span class="fl">1.6</span>   <span class="dv">2025-04-11</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-55"><a href="#cb7-55"></a> rmarkdown        <span class="fl">2.29</span>    <span class="dv">2024-11-04</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-56"><a href="#cb7-56"></a> rstudioapi       <span class="dv">0</span>.<span class="fl">17.1</span>  <span class="dv">2024-10-22</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-57"><a href="#cb7-57"></a> S7               <span class="dv">0</span>.<span class="fl">2.0</span>   <span class="dv">2024-11-07</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-58"><a href="#cb7-58"></a> scales           <span class="dv">1</span>.<span class="fl">4.0</span>   <span class="dv">2025-04-24</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-59"><a href="#cb7-59"></a> sessioninfo      <span class="dv">1</span>.<span class="fl">2.3</span>   <span class="dv">2025-02-05</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-60"><a href="#cb7-60"></a> stringi          <span class="dv">1</span>.<span class="fl">8.7</span>   <span class="dv">2025-03-27</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.0</span>)</span>
+<span id="cb7-61"><a href="#cb7-61"></a> stringr        <span class="sc">*</span> <span class="dv">1</span>.<span class="fl">5.2</span>   <span class="dv">2025-09-08</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-62"><a href="#cb7-62"></a> tibble         <span class="sc">*</span> <span class="dv">3</span>.<span class="fl">3.0</span>   <span class="dv">2025-06-08</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-63"><a href="#cb7-63"></a> tidyr          <span class="sc">*</span> <span class="dv">1</span>.<span class="fl">3.1</span>   <span class="dv">2024-01-24</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-64"><a href="#cb7-64"></a> tidyselect       <span class="dv">1</span>.<span class="fl">2.1</span>   <span class="dv">2024-03-11</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-65"><a href="#cb7-65"></a> tidyverse      <span class="sc">*</span> <span class="dv">2</span>.<span class="fl">0.0</span>   <span class="dv">2023-02-22</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-66"><a href="#cb7-66"></a> timechange       <span class="dv">0</span>.<span class="fl">3.0</span>   <span class="dv">2024-01-18</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-67"><a href="#cb7-67"></a> tzdb             <span class="dv">0</span>.<span class="fl">5.0</span>   <span class="dv">2025-03-15</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-68"><a href="#cb7-68"></a> vctrs            <span class="dv">0</span>.<span class="fl">6.5</span>   <span class="dv">2023-12-01</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-69"><a href="#cb7-69"></a> withr            <span class="dv">3</span>.<span class="fl">0.2</span>   <span class="dv">2024-10-28</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-70"><a href="#cb7-70"></a> xfun             <span class="fl">0.53</span>    <span class="dv">2025-08-19</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
+<span id="cb7-71"><a href="#cb7-71"></a> yaml             <span class="dv">2</span>.<span class="fl">3.10</span>  <span class="dv">2024-07-26</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.0</span>)</span>
+<span id="cb7-72"><a href="#cb7-72"></a></span>
+<span id="cb7-73"><a href="#cb7-73"></a> [<span class="dv">1</span>] C<span class="sc">:</span><span class="er">/</span>Users<span class="sc">/</span>lucib<span class="sc">/</span>AppData<span class="sc">/</span>Local<span class="sc">/</span>R<span class="sc">/</span>win<span class="sc">-</span>library<span class="sc">/</span><span class="fl">4.5</span></span>
+<span id="cb7-74"><a href="#cb7-74"></a> [<span class="dv">2</span>] C<span class="sc">:</span><span class="er">/</span>Program Files<span class="sc">/</span>R<span class="sc">/</span>R<span class="dv">-4</span>.<span class="fl">5.1</span><span class="sc">/</span>library</span>
+<span id="cb7-75"><a href="#cb7-75"></a> <span class="sc">*</span> ── Packages attached to the search path.</span>
+<span id="cb7-76"><a href="#cb7-76"></a></span>
+<span id="cb7-77"><a href="#cb7-77"></a>──────────────────────────────────────────────────────────────────────────────</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details><p><br></p>
+</div>
+</div>
+
+
+<!-- -->
+
+</section></section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reutilizar</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.es">CC BY 4.0</a></div></div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiada");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiada");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Ejecutar el código</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">---</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="an">title:</span><span class="co"> "Los pingüinos molan"</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="an">description:</span><span class="co"> |</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="co">  Viendo si con los datos de pingüinos se aprecia la paradoja de Simpson</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="an">author:</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="co">  - name: Pedro Navaja</span></span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="co">    affiliation: Universitat de València</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a><span class="co">    affiliation-url: https://www.uv.es</span></span>
+<span id="cb8-9"><a href="#cb8-9"></a><span class="an">date:</span><span class="co"> 2022-11-01                           #--</span></span>
+<span id="cb8-10"><a href="#cb8-10"></a><span class="an">categories:</span><span class="co"> [trabajo BigData, pinguinos]   #--</span></span>
+<span id="cb8-11"><a href="#cb8-11"></a><span class="an">image:</span><span class="co"> "./imagenes/imagen_01.png"</span></span>
+<span id="cb8-12"><a href="#cb8-12"></a><span class="an">title-block-banner:</span><span class="co"> true #- {true, false, "green","#AA0000"}</span></span>
+<span id="cb8-13"><a href="#cb8-13"></a><span class="an">title-block-banner-color:</span><span class="co"> "red"    #-"#FFFFFF" </span></span>
+<span id="cb8-14"><a href="#cb8-14"></a><span class="an">toc-depth:</span><span class="co"> 3</span></span>
+<span id="cb8-15"><a href="#cb8-15"></a><span class="an">smooth-scroll:</span><span class="co"> true</span></span>
+<span id="cb8-16"><a href="#cb8-16"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb8-17"><a href="#cb8-17"></a><span class="co">  html:</span></span>
+<span id="cb8-18"><a href="#cb8-18"></a><span class="co">    #backgroundcolor: "#F1F3F4"</span></span>
+<span id="cb8-19"><a href="#cb8-19"></a><span class="co">    #embed-resources: true</span></span>
+<span id="cb8-20"><a href="#cb8-20"></a><span class="co">    link-external-newwindow: true</span></span>
+<span id="cb8-21"><a href="#cb8-21"></a><span class="co">    #css: assets/my_css_file.css   #- CUIDADO!!!!</span></span>
+<span id="cb8-22"><a href="#cb8-22"></a><span class="an">code-tools:</span><span class="co"> true</span></span>
+<span id="cb8-23"><a href="#cb8-23"></a><span class="an">code-link:</span><span class="co"> true</span></span>
+<span id="cb8-24"><a href="#cb8-24"></a><span class="co">---</span></span>
+<span id="cb8-25"><a href="#cb8-25"></a></span>
+<span id="cb8-26"><a href="#cb8-26"></a></span>
+<span id="cb8-27"><a href="#cb8-27"></a><span class="fu">## Intro </span></span>
+<span id="cb8-28"><a href="#cb8-28"></a></span>
+<span id="cb8-29"><a href="#cb8-29"></a>Vamos a utilizar datos del paquete <span class="in">`palmerpenguins`</span>. El repo del paquete en CRAN está <span class="co">[</span><span class="ot">aquí</span><span class="co">](https://cran.r-project.org/web/packages/palmerpenguins/index.html)</span>, el repo de Github está <span class="co">[</span><span class="ot">aquí</span><span class="co">](https://github.com/allisonhorst/palmerpenguins)</span> y la página web del paquete está <span class="co">[</span><span class="ot">aquí</span><span class="co">](https://allisonhorst.github.io/palmerpenguins/)</span>.</span>
+<span id="cb8-30"><a href="#cb8-30"></a></span>
+<span id="cb8-31"><a href="#cb8-31"></a>Los datos se pueden cargar en la memoria de de R/RStudio de esta forma:</span>
+<span id="cb8-32"><a href="#cb8-32"></a></span>
+<span id="cb8-35"><a href="#cb8-35"></a><span class="in">```{r}</span></span>
+<span id="cb8-36"><a href="#cb8-36"></a><span class="co"># install.packages("palmerpenguins")</span></span>
+<span id="cb8-37"><a href="#cb8-37"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb8-38"><a href="#cb8-38"></a>df <span class="ot">&lt;-</span> palmerpenguins<span class="sc">::</span>penguins</span>
+<span id="cb8-39"><a href="#cb8-39"></a><span class="in">```</span></span>
+<span id="cb8-40"><a href="#cb8-40"></a></span>
+<span id="cb8-41"><a href="#cb8-41"></a></span>
+<span id="cb8-42"><a href="#cb8-42"></a>El dataset contiene observaciones sobre un conjunto de <span class="in">`r nrow(df)`</span> pingüinos de 3 especies. Hay  <span class="in">`r ncol(df)`</span> variables.</span>
+<span id="cb8-43"><a href="#cb8-43"></a></span>
+<span id="cb8-44"><a href="#cb8-44"></a>---</span>
+<span id="cb8-45"><a href="#cb8-45"></a></span>
+<span id="cb8-46"><a href="#cb8-46"></a><span class="fu">## Los pingüinos molan</span></span>
+<span id="cb8-47"><a href="#cb8-47"></a></span>
+<span id="cb8-48"><a href="#cb8-48"></a>Vamos a ver una foto de un pingüinos</span>
+<span id="cb8-49"><a href="#cb8-49"></a></span>
+<span id="cb8-52"><a href="#cb8-52"></a><span class="in">```{r}</span></span>
+<span id="cb8-53"><a href="#cb8-53"></a><span class="co">#| echo: false</span></span>
+<span id="cb8-54"><a href="#cb8-54"></a>my_url <span class="ot">&lt;-</span> <span class="st">"https://upload.wikimedia.org/wikipedia/commons/a/a9/Ping%C3%BCinos.JPG?20090406212143"</span></span>
+<span id="cb8-55"><a href="#cb8-55"></a><span class="in">```</span></span>
+<span id="cb8-56"><a href="#cb8-56"></a></span>
+<span id="cb8-57"><a href="#cb8-57"></a></span>
+<span id="cb8-58"><a href="#cb8-58"></a><span class="al">![Un pingüino chulo](https://upload.wikimedia.org/wikipedia/commons/a/a9/Ping%C3%BCinos.JPG?20090406212143)</span></span>
+<span id="cb8-59"><a href="#cb8-59"></a></span>
+<span id="cb8-60"><a href="#cb8-60"></a>---</span>
+<span id="cb8-61"><a href="#cb8-61"></a></span>
+<span id="cb8-62"><a href="#cb8-62"></a>Sí, lo pingüinos molan, así que vamos a poner otra foto de pingüinos que tenemos en nuestro PC pero la vamos a poner en el margen:</span>
+<span id="cb8-63"><a href="#cb8-63"></a></span>
+<span id="cb8-64"><a href="#cb8-64"></a>::: {.column-margin}</span>
+<span id="cb8-65"><a href="#cb8-65"></a></span>
+<span id="cb8-66"><a href="#cb8-66"></a><span class="al">![](./imagenes/imagen_01.png)</span>{fig-align="center"}</span>
+<span id="cb8-67"><a href="#cb8-67"></a></span>
+<span id="cb8-68"><a href="#cb8-68"></a>:::</span>
+<span id="cb8-69"><a href="#cb8-69"></a></span>
+<span id="cb8-70"><a href="#cb8-70"></a>---</span>
+<span id="cb8-71"><a href="#cb8-71"></a></span>
+<span id="cb8-72"><a href="#cb8-72"></a><span class="fu">## Algunos gráficos</span></span>
+<span id="cb8-73"><a href="#cb8-73"></a></span>
+<span id="cb8-74"><a href="#cb8-74"></a></span>
+<span id="cb8-75"><a href="#cb8-75"></a>Bueno pues vamos a hacer algún gráfico, pero claro antes he de cargar los paquetes</span>
+<span id="cb8-76"><a href="#cb8-76"></a></span>
+<span id="cb8-79"><a href="#cb8-79"></a><span class="in">```{r}</span></span>
+<span id="cb8-80"><a href="#cb8-80"></a><span class="co">#| eval: true</span></span>
+<span id="cb8-81"><a href="#cb8-81"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb8-82"><a href="#cb8-82"></a><span class="in">```</span></span>
+<span id="cb8-83"><a href="#cb8-83"></a></span>
+<span id="cb8-84"><a href="#cb8-84"></a></span>
+<span id="cb8-85"><a href="#cb8-85"></a>Arreglo los datos</span>
+<span id="cb8-86"><a href="#cb8-86"></a></span>
+<span id="cb8-89"><a href="#cb8-89"></a><span class="in">```{r}</span></span>
+<span id="cb8-90"><a href="#cb8-90"></a><span class="co">#- cojos datos de pingüinos y arreglo un poco </span></span>
+<span id="cb8-91"><a href="#cb8-91"></a>df <span class="ot">&lt;-</span> palmerpenguins<span class="sc">::</span>penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb8-92"><a href="#cb8-92"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(species, bill_depth_mm, body_mass_g) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-93"><a href="#cb8-93"></a>  tidyr<span class="sc">::</span><span class="fu">drop_na</span>()</span>
+<span id="cb8-94"><a href="#cb8-94"></a><span class="in">```</span></span>
+<span id="cb8-95"><a href="#cb8-95"></a></span>
+<span id="cb8-96"><a href="#cb8-96"></a>---</span>
+<span id="cb8-97"><a href="#cb8-97"></a></span>
+<span id="cb8-98"><a href="#cb8-98"></a><span class="fu">### Primer gráfico</span></span>
+<span id="cb8-99"><a href="#cb8-99"></a></span>
+<span id="cb8-100"><a href="#cb8-100"></a></span>
+<span id="cb8-103"><a href="#cb8-103"></a><span class="in">```{r}</span></span>
+<span id="cb8-104"><a href="#cb8-104"></a><span class="co">#- primer gráfico</span></span>
+<span id="cb8-105"><a href="#cb8-105"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> df, </span>
+<span id="cb8-106"><a href="#cb8-106"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, <span class="at">y =</span> body_mass_g, <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb8-107"><a href="#cb8-107"></a>     <span class="fu">geom_point</span>()</span>
+<span id="cb8-108"><a href="#cb8-108"></a>p</span>
+<span id="cb8-109"><a href="#cb8-109"></a><span class="in">```</span></span>
+<span id="cb8-110"><a href="#cb8-110"></a></span>
+<span id="cb8-111"><a href="#cb8-111"></a>---</span>
+<span id="cb8-112"><a href="#cb8-112"></a></span>
+<span id="cb8-113"><a href="#cb8-113"></a><span class="fu">### Segundo</span></span>
+<span id="cb8-114"><a href="#cb8-114"></a></span>
+<span id="cb8-117"><a href="#cb8-117"></a><span class="in">```{r}</span></span>
+<span id="cb8-118"><a href="#cb8-118"></a><span class="co">#- segundo gráfico</span></span>
+<span id="cb8-119"><a href="#cb8-119"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) </span>
+<span id="cb8-120"><a href="#cb8-120"></a></span>
+<span id="cb8-121"><a href="#cb8-121"></a>p</span>
+<span id="cb8-122"><a href="#cb8-122"></a><span class="in">```</span></span>
+<span id="cb8-123"><a href="#cb8-123"></a></span>
+<span id="cb8-124"><a href="#cb8-124"></a>---</span>
+<span id="cb8-125"><a href="#cb8-125"></a></span>
+<span id="cb8-126"><a href="#cb8-126"></a><span class="fu">### El último</span></span>
+<span id="cb8-127"><a href="#cb8-127"></a></span>
+<span id="cb8-130"><a href="#cb8-130"></a><span class="in">```{r}</span></span>
+<span id="cb8-131"><a href="#cb8-131"></a><span class="co">#- tercer gráfico</span></span>
+<span id="cb8-132"><a href="#cb8-132"></a>p <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">"black"</span>) </span>
+<span id="cb8-133"><a href="#cb8-133"></a><span class="in">```</span></span>
+<span id="cb8-134"><a href="#cb8-134"></a></span>
+<span id="cb8-135"><a href="#cb8-135"></a><span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span></span>
+<span id="cb8-136"><a href="#cb8-136"></a></span>
+<span id="cb8-137"><a href="#cb8-137"></a>Con esto acabo mi trabajo para BigData!!</span>
+<span id="cb8-138"><a href="#cb8-138"></a></span>
+<span id="cb8-139"><a href="#cb8-139"></a><span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span></span>
+<span id="cb8-140"><a href="#cb8-140"></a></span>
+<span id="cb8-141"><a href="#cb8-141"></a>----------------------</span>
+<span id="cb8-142"><a href="#cb8-142"></a></span>
+<span id="cb8-143"><a href="#cb8-143"></a><span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span></span>
+<span id="cb8-144"><a href="#cb8-144"></a></span>
+<span id="cb8-145"><a href="#cb8-145"></a><span class="fu">### Información sobre la sesión</span></span>
+<span id="cb8-146"><a href="#cb8-146"></a></span>
+<span id="cb8-147"><a href="#cb8-147"></a>Abajo muestro mi entorno de trabajo y paquetes utilizados</span>
+<span id="cb8-148"><a href="#cb8-148"></a></span>
+<span id="cb8-151"><a href="#cb8-151"></a><span class="in">```{r}</span></span>
+<span id="cb8-152"><a href="#cb8-152"></a><span class="co">#| echo: false</span></span>
+<span id="cb8-153"><a href="#cb8-153"></a>sessioninfo<span class="sc">::</span><span class="fu">session_info</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb8-154"><a href="#cb8-154"></a>  details<span class="sc">::</span><span class="fu">details</span>(<span class="at">summary =</span> <span class="st">'current session info'</span>) </span>
+<span id="cb8-155"><a href="#cb8-155"></a><span class="in">```</span></span>
+<span id="cb8-156"><a href="#cb8-156"></a></span>
+<span id="cb8-157"><a href="#cb8-157"></a></span>
+</code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2025 Lucía Bellido</p>
+</div>   
+    <div class="nav-footer-center">
+<p>Hecho con <a href="https://quarto.org">Quarto</a></p>
+</div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+<li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/<tu-usuario-github>">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="mailto:<lubea2@alumni.uv.es">
+      <i class="bi bi-envelope" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+</div>
+  </div>
+</footer><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
