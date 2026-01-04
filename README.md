@@ -22,5 +22,6 @@ El autor del trabajo soy yo, Lucía Bellido Alegre (lbellidoalegre@gmail.com), e
 
 El título del trabajo es El mejor libro. En él se realiza un análisis de las características que debería tener un libro para poder ser categorizado como el “mejor” libro. Para ello, nos centraremos en las valoraciones de los libros en Goodreads con el fin de identificar aquellos con la mejor nota media y, a partir de este análisis, definir las características del mejor libro posible.
 
-"# trabajo_BigData_individual" 
-"# trabajo_BigData_individual" 
+"#trabajo_BigData_individual" 
+"#trabajo_BigData_individual" 
+"#trabajo_BigData_individual" 
