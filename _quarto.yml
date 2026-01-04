@@ -35,7 +35,7 @@ other-links:
     href: https://perezp44.github.io/intro-ds-25-26-web/05-trabajos-estudiantes.html 
   - text: Repo del trabajo
     #- has de cambiar "perezp44" por tu usuario de Github. AQUI!!!!!!
-    href: https://github.com/perezp44/trabajo_BigData_individual     #- AQUI!!!!
+    href: https://github.com/lbellidoa/trabajo_BigData_individual     #- AQUI!!!!
     
 
 #- este SEGUNDO bloque puedes tocarlo pero no hace falta -----------------------
@@ -117,7 +117,7 @@ execute:
 
 #- tienes que cambiar algunas cosas ---
 website:
-  title: "Título de mi website"            #- hay q cambiarlo  AQUI!!!!
+  title: "El mejor libro"            #- hay q cambiarlo  AQUI!!!!
   favicon: imagenes/my_favicon_uv.jpeg     #- 
   search:   
     location: navbar
@@ -132,22 +132,22 @@ website:
       - icon: house-door
         href: index.html
     right:
-      - text: "Trabajo individual"        #--- s
+      - text: "El mejor libro"        #--- s
         href: my_trabajo_BigData.qmd   
       - icon: github
         href: https://github.com/lbellidoa    #- pon tu usuario Github AQUI!!!!
       - icon: envelope
-        url: "mailto:lubea2@alumni.uv.es"            #- pon tu e-mail AQUI!!!!
+        url: "mailto:lbellidoalegre@gmail.com"            #- pon tu e-mail AQUI!!!!
   page-footer:
     border: true
     background: "#e66b63"         #-- AQUI!!!!
-    left: "© 2025 Lucía Bellido Alegre"   #-- AQUI!!!!
+    left: "© 2025 Lucía Bellido"   #-- AQUI!!!!
     center: "Hecho con [Quarto](https://quarto.org)"
     right:
       - icon: github
-        href: https://github.com/<tu-usuario-github>     #- pon tu usuario Github AQUI!!!!
+        href: https://github.com/lbellidoa     #- pon tu usuario Github AQUI!!!!
       - icon: envelope
-        url: "mailto:<lubea2@alumni.uv.es"            #- pon tu e-mail AQUI!!!!
+        url: "mailto:lbellidoalegre@gmail.com"            #- pon tu e-mail AQUI!!!!
     
     
 
@@ -159,7 +159,7 @@ format:
   html:
     page-layout: full
     theme: 
-      - flatly #- {cerulean, cosmo, cyborg, darkly, flatly, journal, litera, lumen, lux, materia, minty, pulse, sandstone, simplex, sketchy, slate, solar, spacelab, superhero, united, yeti}
+      - pulse #- {cerulean, cosmo, cyborg, darkly, flatly, journal, litera, lumen, lux, materia, minty, pulse, sandstone, simplex, sketchy, slate, solar, spacelab, superhero, united, yeti}
     css: 
       - assets/styles.css
     mainfont: Lato

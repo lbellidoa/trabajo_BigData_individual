@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.23">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<meta name="author" content="Pedro Navaja">
-<meta name="description" content="Viendo si con los datos de pingüinos se aprecia la paradoja de Simpson">
-<title>Los pingüinos molan – Título de mi website</title>
+<meta name="author" content="Lucía Bellido">
+<meta name="description" content="Basandonos en las reviews en la aplicacion Goodreads">
+<title>El mejor libro</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,7 +73,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-631ded8afafd89da02f6c04f3e24cdd8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8d51947209f6792dca7048803c219a21.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b9d049045eb49b6e6e506a13ae6c9009.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
@@ -111,14 +111,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       .quarto-title-block .quarto-title-banner h5,
       .quarto-title-block .quarto-title-banner h6
       {
-        color: red;
+        color: #FFFFFF;
       }
 
       .quarto-title-block .quarto-title-banner {
-        color: red;
+        color: #FFFFFF;
       }
 </style>
-<link rel="shortcut icon" href="imagenes/uv.jpeg">
+<link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="site_libs/plotly-binding-4.11.0/plotly.js"></script><script src="site_libs/typedarray-0.1/typedarray.min.js"></script><script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><link href="site_libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+<script src="site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script><link href="site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script><link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="site_libs/datatables-binding-0.34.0/datatables.js"></script><link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script><script src="site_libs/proj4js-2.3.15/proj4.js"></script><link href="site_libs/highcharts-9.3.1/css/motion.css" rel="stylesheet">
+<script src="site_libs/highcharts-9.3.1/highcharts.js"></script><script src="site_libs/highcharts-9.3.1/highcharts-3d.js"></script><script src="site_libs/highcharts-9.3.1/highcharts-more.js"></script><script src="site_libs/highcharts-9.3.1/modules/stock.js"></script><script src="site_libs/highcharts-9.3.1/modules/map.js"></script><script src="site_libs/highcharts-9.3.1/modules/data.js"></script><script src="site_libs/highcharts-9.3.1/modules/exporting.js"></script><script src="site_libs/highcharts-9.3.1/modules/offline-exporting.js"></script><script src="site_libs/highcharts-9.3.1/modules/drilldown.js"></script><script src="site_libs/highcharts-9.3.1/modules/item-series.js"></script><script src="site_libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script><script src="site_libs/highcharts-9.3.1/modules/annotations.js"></script><script src="site_libs/highcharts-9.3.1/modules/export-data.js"></script><script src="site_libs/highcharts-9.3.1/modules/funnel.js"></script><script src="site_libs/highcharts-9.3.1/modules/heatmap.js"></script><script src="site_libs/highcharts-9.3.1/modules/treemap.js"></script><script src="site_libs/highcharts-9.3.1/modules/sankey.js"></script><script src="site_libs/highcharts-9.3.1/modules/dependency-wheel.js"></script><script src="site_libs/highcharts-9.3.1/modules/organization.js"></script><script src="site_libs/highcharts-9.3.1/modules/solid-gauge.js"></script><script src="site_libs/highcharts-9.3.1/modules/streamgraph.js"></script><script src="site_libs/highcharts-9.3.1/modules/sunburst.js"></script><script src="site_libs/highcharts-9.3.1/modules/vector.js"></script><script src="site_libs/highcharts-9.3.1/modules/wordcloud.js"></script><script src="site_libs/highcharts-9.3.1/modules/xrange.js"></script><script src="site_libs/highcharts-9.3.1/modules/tilemap.js"></script><script src="site_libs/highcharts-9.3.1/modules/venn.js"></script><script src="site_libs/highcharts-9.3.1/modules/gantt.js"></script><script src="site_libs/highcharts-9.3.1/modules/timeline.js"></script><script src="site_libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script><script src="site_libs/highcharts-9.3.1/modules/bullet.js"></script><script src="site_libs/highcharts-9.3.1/modules/coloraxis.js"></script><script src="site_libs/highcharts-9.3.1/modules/dumbbell.js"></script><script src="site_libs/highcharts-9.3.1/modules/lollipop.js"></script><script src="site_libs/highcharts-9.3.1/modules/series-label.js"></script><script src="site_libs/highcharts-9.3.1/plugins/motion.js"></script><script src="site_libs/highcharts-9.3.1/custom/reset.js"></script><script src="site_libs/highcharts-9.3.1/modules/boost.js"></script><script src="site_libs/highchart-binding-0.9.4/highchart.js"></script><link rel="shortcut icon" href="imagenes/uv.jpeg">
 <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body class="nav-fixed quarto-light">
@@ -129,7 +136,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
     <img src="./imagenes/uv.jpg" alt="" class="navbar-logo light-content"><img src="./imagenes/uv.jpg" alt="" class="navbar-logo dark-content"></a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Título de mi website</span>
+    <span class="navbar-title">El mejor libro</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Buscar"></div>
@@ -147,7 +154,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul class="navbar-nav navbar-nav-scroll ms-auto">
 <li class="nav-item">
     <a class="nav-link active" href="./my_trabajo_BigData.html" aria-current="page"> 
-<span class="menu-text">Trabajo individual</span></a>
+<span class="menu-text">El mejor libro</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/lbellidoa"> <i class="bi bi-github" role="img">
@@ -155,7 +162,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="mailto:lubea2@alumni.uv.es"> <i class="bi bi-envelope" role="img">
+    <a class="nav-link" href="mailto:lbellidoalegre@gmail.com"> <i class="bi bi-envelope" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -166,15 +173,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </div> <!-- /container-fluid -->
     </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-page-left">
-      <div class="quarto-title-block"><div><h1 class="title">Los pingüinos molan</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Código</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Enseñar el código</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Esconder el código</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">Ver el código</a></li></ul></div></div>
+      <div class="quarto-title-block"><div><h1 class="title">El mejor libro</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Código</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Enseñar el código</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Esconder el código</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">Ver el código</a></li></ul></div></div>
                   <div>
         <div class="description">
-          <p>Viendo si con los datos de pingüinos se aprecia la paradoja de Simpson</p>
+          <p>Basandonos en las reviews en la aplicacion Goodreads</p>
         </div>
       </div>
                           <div class="quarto-categories">
                 <div class="quarto-category">trabajo BigData</div>
-                <div class="quarto-category">pinguinos</div>
+                <div class="quarto-category">libros</div>
               </div>
                   </div>
   </div>
@@ -184,7 +191,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="quarto-title-meta-heading">Afiliación</div>
     
       <div class="quarto-title-meta-contents">
-      <p class="author">Pedro Navaja </p>
+      <p class="author">Lucía Bellido </p>
     </div>
     <div class="quarto-title-meta-contents">
           <p class="affiliation">
@@ -201,7 +208,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Fecha de Publicación</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">1 de noviembre de 2022</p>
+        <p class="date">7 de enero de 2026</p>
       </div>
     </div>
     
@@ -216,192 +223,198 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Índice</h2>
    
   <ul>
-<li><a href="#intro" id="toc-intro" class="nav-link active" data-scroll-target="#intro">Intro</a></li>
-  <li><a href="#los-ping%C3%BCinos-molan" id="toc-los-pingüinos-molan" class="nav-link" data-scroll-target="#los-ping%C3%BCinos-molan">Los pingüinos molan</a></li>
-  <li>
-<a href="#algunos-gr%C3%A1ficos" id="toc-algunos-gráficos" class="nav-link" data-scroll-target="#algunos-gr%C3%A1ficos">Algunos gráficos</a>
-  <ul class="collapse">
-<li><a href="#primer-gr%C3%A1fico" id="toc-primer-gráfico" class="nav-link" data-scroll-target="#primer-gr%C3%A1fico">Primer gráfico</a></li>
-  <li><a href="#segundo" id="toc-segundo" class="nav-link" data-scroll-target="#segundo">Segundo</a></li>
-  <li><a href="#el-%C3%BAltimo" id="toc-el-último" class="nav-link" data-scroll-target="#el-%C3%BAltimo">El último</a></li>
-  <li><a href="#informaci%C3%B3n-sobre-la-sesi%C3%B3n" id="toc-información-sobre-la-sesión" class="nav-link" data-scroll-target="#informaci%C3%B3n-sobre-la-sesi%C3%B3n">Información sobre la sesión</a></li>
-  </ul>
-</li>
-  </ul><div class="quarto-other-links"><h2>Otros Enlaces</h2><ul><li><a href="https://perezp44.github.io/intro-ds-25-26-web/"><i class="bi bi-link-45deg"></i>Web del curso</a></li><li><a href="https://perezp44.github.io/intro-ds-25-26-web/05-trabajos-estudiantes.html"><i class="bi bi-link-45deg"></i>Trabajos de mis compañeros</a></li><li><a href="https://github.com/perezp44/trabajo_BigData_individual"><i class="bi bi-link-45deg"></i>Repo del trabajo</a></li></ul></div></nav>
+<li><a href="#introducci%C3%B3n" id="toc-introducción" class="nav-link active" data-scroll-target="#introducci%C3%B3n">Introducción</a></li>
+  <li><a href="#qu%C3%A9-libros-le-gusta-a-la-gente" id="toc-qué-libros-le-gusta-a-la-gente" class="nav-link" data-scroll-target="#qu%C3%A9-libros-le-gusta-a-la-gente">¿Qué libros le gusta a la gente?</a></li>
+  <li><a href="#qui%C3%A9n-deber%C3%ADa-escribir-nuestro-libro" id="toc-quién-debería-escribir-nuestro-libro" class="nav-link" data-scroll-target="#qui%C3%A9n-deber%C3%ADa-escribir-nuestro-libro">¿Quién debería escribir nuestro libro?</a></li>
+  <li><a href="#cu%C3%A1ntas-p%C3%A1ginas-debe-tener-nuestro-libro" id="toc-cuántas-páginas-debe-tener-nuestro-libro" class="nav-link" data-scroll-target="#cu%C3%A1ntas-p%C3%A1ginas-debe-tener-nuestro-libro">¿Cuántas páginas debe tener nuestro libro?</a></li>
+  <li><a href="#en-qu%C3%A9-idioma-deber%C3%ADa-estar-nuestro-libro" id="toc-en-qué-idioma-debería-estar-nuestro-libro" class="nav-link" data-scroll-target="#en-qu%C3%A9-idioma-deber%C3%ADa-estar-nuestro-libro">¿En qué idioma debería estar nuestro libro?</a></li>
+  </ul><div class="quarto-other-links"><h2>Otros Enlaces</h2><ul><li><a href="https://perezp44.github.io/intro-ds-25-26-web/"><i class="bi bi-link-45deg"></i>Web del curso</a></li><li><a href="https://perezp44.github.io/intro-ds-25-26-web/05-trabajos-estudiantes.html"><i class="bi bi-link-45deg"></i>Trabajos de mis compañeros</a></li><li><a href="https://github.com/lbellidoa/trabajo_BigData_individual"><i class="bi bi-link-45deg"></i>Repo del trabajo</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block page-columns page-full column-page-left" id="quarto-document-content"><section id="intro" class="level2"><h2 class="anchored" data-anchor-id="intro">Intro</h2>
-<p>Vamos a utilizar datos del paquete <code>palmerpenguins</code>. El repo del paquete en CRAN está <a href="https://cran.r-project.org/web/packages/palmerpenguins/index.html">aquí</a>, el repo de Github está <a href="https://github.com/allisonhorst/palmerpenguins">aquí</a> y la página web del paquete está <a href="https://allisonhorst.github.io/palmerpenguins/">aquí</a>.</p>
+<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content"><section id="introducción" class="level2"><h2 class="anchored" data-anchor-id="introducción">Introducción</h2>
+<p>Para este trabajo vamos a estar utilizando datos sobre libros en Goodreads y sus notas, estos se pueden sacar de <a href="https://datahub.io/@gradedSystem/goodreads_dataset">aquí</a>. También utilizaremos datos sobre el número de hablantes de cada idioma que se pueden encontrar <a href="https://www.kaggle.com/datasets/narmelan/100-most-spoken-languages-around-the-world?resource=download">aquí</a></p>
 <p>Los datos se pueden cargar en la memoria de de R/RStudio de esta forma:</p>
 <div class="cell" data-layout-align="center">
-<details open="" class="code-fold"><summary>Código</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># install.packages("palmerpenguins")</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb1-3"><a href="#cb1-3"></a>df <span class="ot">&lt;-</span> palmerpenguins<span class="sc">::</span>penguins</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<details open="" class="code-fold"><summary>Código</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-2"><a href="#cb1-2"></a>goodreads <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/goodreads.csv"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3"></a>hablantes <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/Top 100 Languages.csv"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>El dataset contiene observaciones sobre un conjunto de 344 pingüinos de 3 especies. Hay 8 variables.</p>
-<hr></section><section id="los-pingüinos-molan" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="los-pingüinos-molan">Los pingüinos molan</h2>
-<p>Vamos a ver una foto de un pingüinos</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="https://upload.wikimedia.org/wikipedia/commons/a/a9/Ping%C3%BCinos.JPG?20090406212143" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Un pingüino chulo"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Ping%C3%BCinos.JPG?20090406212143" class="img-fluid figure-img" alt="Un pingüino chulo"></a></p>
-<figcaption>Un pingüino chulo</figcaption></figure>
-</div>
-<hr>
-<p>Sí, lo pingüinos molan, así que vamos a poner otra foto de pingüinos que tenemos en nuestro PC pero la vamos a poner en el margen:</p>
-
-<div class="no-row-height column-margin column-container"><div class="">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="./imagenes/imagen_01.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="./imagenes/imagen_01.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></a></p>
-</figure>
-</div>
-</div></div><hr></section><section id="algunos-gráficos" class="level2"><h2 class="anchored" data-anchor-id="algunos-gráficos">Algunos gráficos</h2>
-<p>Bueno pues vamos a hacer algún gráfico, pero claro antes he de cargar los paquetes</p>
+<p>Y descargamos la biblioteca:</p>
 <div class="cell" data-layout-align="center">
-<details open="" class="code-fold"><summary>Código</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<details open="" class="code-fold"><summary>Código</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="fu">library</span>(plotly)</span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="fu">library</span>(viridis)</span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="fu">library</span>(hrbrthemes)</span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="fu">library</span>(highcharter)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>Arreglo los datos</p>
+<hr></section><section id="qué-libros-le-gusta-a-la-gente" class="level2"><h2 class="anchored" data-anchor-id="qué-libros-le-gusta-a-la-gente">¿Qué libros le gusta a la gente?</h2>
+<p>Empezaremos con un gráfico de burbujas para observar qué libros han tenido más éxito, obteniendo mayores notas medias.</p>
 <div class="cell" data-layout-align="center">
-<details open="" class="code-fold"><summary>Código</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">#- cojos datos de pingüinos y arreglo un poco </span></span>
-<span id="cb3-2"><a href="#cb3-2"></a>df <span class="ot">&lt;-</span> palmerpenguins<span class="sc">::</span>penguins <span class="sc">%&gt;%</span> </span>
-<span id="cb3-3"><a href="#cb3-3"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(species, bill_depth_mm, body_mass_g) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-4"><a href="#cb3-4"></a>  tidyr<span class="sc">::</span><span class="fu">drop_na</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<details open="" class="code-fold"><summary>Código</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>burbujas <span class="ot">&lt;-</span> goodreads <span class="sc">%&gt;%</span> </span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="fu">mutate</span> (<span class="at">anio =</span> <span class="fu">str_extract</span>(publication_date, <span class="st">"</span><span class="sc">\\</span><span class="st">d{4}$"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-3"><a href="#cb3-3"></a>  <span class="fu">drop_na</span> () <span class="sc">%&gt;%</span> </span>
+<span id="cb3-4"><a href="#cb3-4"></a>  <span class="fu">arrange</span> (<span class="fu">desc</span>(average_rating)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>  <span class="fu">filter</span> (average_rating <span class="sc">&gt;=</span> <span class="fl">4.65</span>)</span>
+<span id="cb3-6"><a href="#cb3-6"></a></span>
+<span id="cb3-7"><a href="#cb3-7"></a>p <span class="ot">&lt;-</span> burbujas <span class="sc">%&gt;%</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a>  <span class="fu">mutate</span> (<span class="at">language_code =</span> <span class="fu">factor</span>(language_code, <span class="at">levels =</span> <span class="fu">unique</span>(language_code))) <span class="sc">%&gt;%</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a>  <span class="fu">mutate</span> (<span class="at">text =</span> <span class="fu">paste</span>(<span class="st">"Libro: "</span>, title,</span>
+<span id="cb3-10"><a href="#cb3-10"></a>                       <span class="st">"</span><span class="sc">\n</span><span class="st">Idioma: "</span>, language_code, </span>
+<span id="cb3-11"><a href="#cb3-11"></a>                       <span class="st">"</span><span class="sc">\n</span><span class="st">Nota: "</span>, average_rating, </span>
+<span id="cb3-12"><a href="#cb3-12"></a>                       <span class="st">"</span><span class="sc">\n</span><span class="st">Año: "</span>, anio, </span>
+<span id="cb3-13"><a href="#cb3-13"></a>                       <span class="st">"</span><span class="sc">\n</span><span class="st">Número de votos: "</span>, </span>
+<span id="cb3-14"><a href="#cb3-14"></a>                       ratings_count, <span class="at">sep=</span><span class="st">""</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-15"><a href="#cb3-15"></a>  <span class="fu">ggplot</span> (<span class="fu">aes</span>(<span class="at">x =</span> anio, <span class="at">y =</span> average_rating, <span class="at">size =</span> ratings_count, <span class="at">color =</span> language_code, <span class="at">text=</span>text)) <span class="sc">+</span></span>
+<span id="cb3-16"><a href="#cb3-16"></a>    <span class="fu">geom_point</span> (<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb3-17"><a href="#cb3-17"></a>    <span class="fu">scale_size</span> (<span class="at">range =</span> <span class="fu">c</span>(<span class="fl">1.4</span>, <span class="dv">19</span>), <span class="at">name =</span> <span class="st">"Nº votos"</span>) <span class="sc">+</span></span>
+<span id="cb3-18"><a href="#cb3-18"></a>    <span class="fu">scale_color_viridis</span> (<span class="at">discrete =</span> <span class="cn">TRUE</span>, <span class="at">guide =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb3-19"><a href="#cb3-19"></a>    <span class="fu">theme_ipsum</span> () <span class="sc">+</span></span>
+<span id="cb3-20"><a href="#cb3-20"></a>    <span class="fu">theme</span> (<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb3-21"><a href="#cb3-21"></a>  <span class="fu">labs</span> (<span class="at">title =</span> <span class="st">"Libros con mejor media"</span>,</span>
+<span id="cb3-22"><a href="#cb3-22"></a>        <span class="at">x =</span> <span class="st">"Año"</span>, <span class="at">y =</span> <span class="st">"Nota media"</span>)</span>
+<span id="cb3-23"><a href="#cb3-23"></a></span>
+<span id="cb3-24"><a href="#cb3-24"></a>pp <span class="ot">&lt;-</span> <span class="fu">ggplotly</span> (p, <span class="at">tooltip=</span><span class="st">"text"</span>) </span>
+<span id="cb3-25"><a href="#cb3-25"></a></span>
+<span id="cb3-26"><a href="#cb3-26"></a>pp</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-a82c7bfa671ccafb8757" style="width:95%;height:1500px;"></div>
+<script type="application/json" data-for="htmlwidget-a82c7bfa671ccafb8757">{"x":{"data":[{"x":[16,9,12,12,16,12,11,2,12,12,11,15,14,15,14,13,7,15,14,17,6,10,13,14,12,13,5,15,8,15,4,14,13,15],"y":[5,5,5,5,5,5,5,5,5,5,5,5,4.9100000000000001,4.8300000000000001,4.8200000000000003,4.7800000000000002,4.7599999999999998,4.7300000000000004,4.7300000000000004,4.7199999999999998,4.7199999999999998,4.71,4.7000000000000002,4.7000000000000002,4.6900000000000004,4.6900000000000004,4.6900000000000004,4.6699999999999999,4.6699999999999999,4.6699999999999999,4.6699999999999999,4.6699999999999999,4.6699999999999999,4.6500000000000004],"text":["Libro: His Princess Devotional: A Royal Encounter With Your King<br />Idioma: eng<br />Nota: 5<br />Año: 2007<br />Número de votos: 2","Libro: The American Campaign: U.S. Presidential Campaigns and the National Vote<br />Idioma: eng<br />Nota: 5<br />Año: 2000<br />Número de votos: 0","Libro: The Irish Anatomist: A Study of Flann O'Brien<br />Idioma: eng<br />Nota: 5<br />Año: 2003<br />Número de votos: 1","Libro: Tyrannosaurus Wrecks (Stanley  #1)<br />Idioma: eng<br />Nota: 5<br />Año: 2003<br />Número de votos: 2","Libro: Oliver Wendell Holmes in Paris: Medicine  Theology  and the Autocrat of the Breakfast Table<br />Idioma: eng<br />Nota: 5<br />Año: 2007<br />Número de votos: 1","Libro: Fanning the Flame: Bible  Cross  and Mission<br />Idioma: eng<br />Nota: 5<br />Año: 2003<br />Número de votos: 1","Libro: The New Big Book of America<br />Idioma: eng<br />Nota: 5<br />Año: 2002<br />Número de votos: 2","Libro: Taxation of Mineral Rents<br />Idioma: eng<br />Nota: 5<br />Año: 1983<br />Número de votos: 1","Libro: Zone of the Enders: The 2nd Runner Official Strategy Guide<br />Idioma: eng<br />Nota: 5<br />Año: 2003<br />Número de votos: 2","Libro: Middlesex Borough (Images of America: New Jersey)<br />Idioma: eng<br />Nota: 5<br />Año: 2003<br />Número de votos: 2","Libro: Literature Circle Guide: Bridge to Terabithia: Everything You Need For Successful Literature Circles That Get Kids Thinking  Talking  Writing—and Loving Literature<br />Idioma: eng<br />Nota: 5<br />Año: 2002<br />Número de votos: 4","Libro: Willem de Kooning: Late Paintings<br />Idioma: eng<br />Nota: 5<br />Año: 2006<br />Número de votos: 1","Libro: Existential Meditation<br />Idioma: eng<br />Nota: 4.91<br />Año: 2005<br />Número de votos: 11","Libro: Corvette<br />Idioma: eng<br />Nota: 4.83<br />Año: 2006<br />Número de votos: 6","Libro: The Complete Calvin and Hobbes<br />Idioma: eng<br />Nota: 4.82<br />Año: 2005<br />Número de votos: 32213","Libro: Harry Potter Boxed Set  Books 1-5 (Harry Potter  #1-5)<br />Idioma: eng<br />Nota: 4.78<br />Año: 2004<br />Número de votos: 41428","Libro: It's a Magical World (Calvin and Hobbes  #11)<br />Idioma: eng<br />Nota: 4.76<br />Año: 1996<br />Número de votos: 23875","Libro: Early Color<br />Idioma: eng<br />Nota: 4.73<br />Año: 2006<br />Número de votos: 144","Libro: Harry Potter Collection (Harry Potter  #1-6)<br />Idioma: eng<br />Nota: 4.73<br />Año: 2005<br />Número de votos: 28242","Libro: The Beatles' Story on Capitol Records  Part Two: The Albums<br />Idioma: eng<br />Nota: 4.72<br />Año: 2010<br />Número de votos: 29","Libro: Homicidal Psycho Jungle Cat (Calvin and Hobbes #9)<br />Idioma: eng<br />Nota: 4.72<br />Año: 1994<br />Número de votos: 15365","Libro: Calvin and Hobbes: Sunday Pages 1985-1995: An Exhibition Catalogue<br />Idioma: eng<br />Nota: 4.71<br />Año: 2001<br />Número de votos: 3613","Libro: The Complete Aubrey/Maturin Novels (5 Volumes)<br />Idioma: eng<br />Nota: 4.7<br />Año: 2004<br />Número de votos: 1338","Libro: The 5 Love Languages / The 5 Love Languages Journal<br />Idioma: eng<br />Nota: 4.7<br />Año: 2005<br />Número de votos: 22","Libro: Cook's Illustrated 2003 (Cook's Illustrated Annuals)<br />Idioma: eng<br />Nota: 4.69<br />Año: 2003<br />Número de votos: 26","Libro: A Wife After God's Own Heart Growth and Study Guide<br />Idioma: eng<br />Nota: 4.69<br />Año: 2004<br />Número de votos: 9","Libro: The Days Are Just Packed<br />Idioma: eng<br />Nota: 4.69<br />Año: 1993<br />Número de votos: 20308","Libro: Getting a Grip on the Basics: Building a Firm Foundation for the Victorious Christian Life<br />Idioma: eng<br />Nota: 4.67<br />Año: 2006<br />Número de votos: 9","Libro: Restless Till We Rest in You: 60 Reflections from the Writings of St. Augustine (Saints Speak Today)<br />Idioma: eng<br />Nota: 4.67<br />Año: 1998<br />Número de votos: 6","Libro: Falling Angels (Luc Actar #1)<br />Idioma: eng<br />Nota: 4.67<br />Año: 2006<br />Número de votos: 1","Libro: Bill Buzz<br />Idioma: eng<br />Nota: 4.67<br />Año: 1989<br />Número de votos: 2","Libro: The Life and Times of Scrooge McDuck<br />Idioma: eng<br />Nota: 4.67<br />Año: 2005<br />Número de votos: 2467","Libro: Empire 2.0: A Modest Proposal for a United States of the West (Terra Nova)<br />Idioma: eng<br />Nota: 4.67<br />Año: 2004<br />Número de votos: 3","Libro: The Absolute Sandman  Volume One<br />Idioma: eng<br />Nota: 4.65<br />Año: 2006<br />Número de votos: 15640"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(68,1,84,1)","opacity":0.69999999999999996,"size":[5.7535260854456958,5.2913385826771648,5.6181545000644686,5.7535260854456958,5.6181545000644686,5.6181545000644686,5.7535260854456958,5.6181545000644686,5.7535260854456958,5.7535260854456958,5.9449704174517723,5.6181545000644686,6.375264356166638,6.0918708200956395,63.948195339481366,71.811023622047244,55.78942143839263,9.2131295913248081,60.213917908754901,7.0512961594026509,45.802013877883432,24.93566677831388,17.245834200711791,6.8242411121517259,6.9577793227877534,6.2717863348390761,51.864613531538886,6.2717863348390761,6.0918708200956395,5.6181545000644686,5.7535260854456958,21.523926928254028,5.8574003563142076,46.162932507241734],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(68,1,84,1)"}},"hoveron":"points","name":"eng","legendgroup":"eng","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[3],"y":[5],"text":"Libro: Delwau Duon: Peintiadau Nicholas Evans = Symphonies in Black: The Paintings of Nicholas Evans<br />Idioma: wel<br />Nota: 5<br />Año: 1987<br />Número de votos: 1","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(65,68,135,1)","opacity":0.69999999999999996,"size":5.6181545000644686,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(65,68,135,1)"}},"hoveron":"points","name":"wel","legendgroup":"wel","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1],"y":[5],"text":"Libro: Comoediae 1: Acharenses/Equites/Nubes/Vespae/Pax/Aves<br />Idioma: grc<br />Nota: 5<br />Año: 1922<br />Número de votos: 0","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(42,120,142,1)","opacity":0.69999999999999996,"size":5.2913385826771648,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(42,120,142,1)"}},"hoveron":"points","name":"grc","legendgroup":"grc","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[10,12],"y":[4.8799999999999999,4.6900000000000004],"text":["Libro: Little Big Book for God's Children<br />Idioma: en-US<br />Nota: 4.88<br />Año: 2001<br />Número de votos: 8","Libro: The Sibley Field Guide to Birds of Western North America<br />Idioma: en-US<br />Nota: 4.69<br />Año: 2003<br />Número de votos: 730"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(34,168,132,1)","opacity":0.69999999999999996,"size":[6.215713588214224,14.121418424678852],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(34,168,132,1)"}},"hoveron":"points","name":"en-US","legendgroup":"en-US","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[6],"y":[4.7800000000000002],"text":"Libro: Wissenschaft der Logik: Die Lehre Vom Begriff (1816)<br />Idioma: ger<br />Nota: 4.78<br />Año: 1994<br />Número de votos: 0","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(122,209,81,1)","opacity":0.69999999999999996,"size":5.2913385826771648,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(122,209,81,1)"}},"hoveron":"points","name":"ger","legendgroup":"ger","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[12],"y":[4.7199999999999998],"text":"Libro: Elliott Erwitt: Snaps<br />Idioma: en-GB<br />Nota: 4.72<br />Año: 2003<br />Número de votos: 102","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(253,231,37,1)","opacity":0.69999999999999996,"size":8.5920175542655706,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(253,231,37,1)"}},"hoveron":"points","name":"en-GB","legendgroup":"en-GB","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":79.76089663760898,"r":39.850560398505614,"b":70.900788709007898,"l":78.538812785388146},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"Arial Narrow","size":15.276048152760483},"title":{"text":"<b> Libros con mejor media <\/b>","font":{"color":"rgba(0,0,0,1)","family":"Arial Narrow","size":23.910336239103366},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,17.600000000000001],"tickmode":"array","ticktext":["1922","1983","1987","1989","1993","1994","1996","1998","2000","2001","2002","2003","2004","2005","2006","2007","2010"],"tickvals":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],"categoryorder":"array","categoryarray":["1922","1983","1987","1989","1993","1994","1996","1998","2000","2001","2002","2003","2004","2005","2006","2007","2010"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.8190120381901207,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"Arial Narrow","size":15.276048152760483},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(204,204,204,1)","gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"Año","font":{"color":"rgba(0,0,0,1)","family":"Arial Narrow","size":11.955168119551683}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[4.6325000000000003,5.0175000000000001],"tickmode":"array","ticktext":["4.7","4.8","4.9","5.0"],"tickvals":[4.7000000000000002,4.8000000000000007,4.9000000000000004,5.0000000000000009],"categoryorder":"array","categoryarray":["4.7","4.8","4.9","5.0"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.8190120381901207,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"Arial Narrow","size":15.276048152760483},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(204,204,204,1)","gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Nota media","font":{"color":"rgba(0,0,0,1)","family":"Arial Narrow","size":11.955168119551683}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"Arial Narrow","size":12.220838522208389}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"416433641f66":{"x":{},"y":{},"size":{},"colour":{},"text":{},"type":"scatter"}},"cur_data":"416433641f66","visdat":{"416433641f66":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
+</div>
+<p>Codigo inspirado en <a href="https://r-graph-gallery.com/bubble_chart_interactive_ggplotly.html">este</a>.</p>
+<p>Como se puede observar, muchos libros con una puntuación de 5 sobre 5 tienen muy pocas reviews, por lo que vamos a descartarlos y poner un mínimo de 10.000 reviews para elaborar un top 10 más preciso. También eliminaremos las sagas para centrarnos únicamente en libros individuales.</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold"><summary>Código</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>top_libros <span class="ot">&lt;-</span> goodreads <span class="sc">%&gt;%</span> </span>
+<span id="cb4-2"><a href="#cb4-2"></a>  <span class="fu">filter</span> (ratings_count <span class="sc">&gt;=</span> <span class="dv">10000</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-3"><a href="#cb4-3"></a>  <span class="fu">filter</span> (<span class="sc">!</span><span class="fu">str_detect</span>(title, <span class="fu">regex</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">bset</span><span class="sc">\\</span><span class="st">b"</span>, <span class="at">ignore_case =</span> <span class="cn">TRUE</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-4"><a href="#cb4-4"></a>  <span class="fu">filter</span> (<span class="sc">!</span><span class="fu">str_detect</span>(title, <span class="fu">regex</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">bcollection</span><span class="sc">\\</span><span class="st">b"</span>, <span class="at">ignore_case =</span> <span class="cn">TRUE</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-5"><a href="#cb4-5"></a>  <span class="fu">select</span> (title, authors, average_rating) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-6"><a href="#cb4-6"></a>  <span class="fu">arrange</span> (<span class="fu">desc</span>(average_rating)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span>
+<span id="cb4-8"><a href="#cb4-8"></a></span>
+<span id="cb4-9"><a href="#cb4-9"></a>DT<span class="sc">::</span><span class="fu">datatable</span>(top_libros)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-2aa16ebe005476eb53c4" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-2aa16ebe005476eb53c4">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10"],["The Complete Calvin and Hobbes","It's a Magical World (Calvin and Hobbes  #11)","Homicidal Psycho Jungle Cat (Calvin and Hobbes #9)","The Days Are Just Packed","The Absolute Sandman  Volume One","The Calvin and Hobbes Tenth Anniversary Book","The Lord of the Rings: The Art of the Fellowship of the Ring","Fullmetal Alchemist  Vol. 8 (Fullmetal Alchemist  #8)","Harry Potter and the Half-Blood Prince (Harry Potter  #6)","Fullmetal Alchemist  Vol. 5 (Fullmetal Alchemist  #5)"],["Bill Watterson","Bill Watterson","Bill Watterson","Bill Watterson","Neil Gaiman/Mike Dringenberg/Chris Bachalo/Michael Zulli/Kelly Jones/Charles Vess/Colleen Doran/Malcolm Jones III/Steve Parkhouse/Daniel Vozzo/Lee Loughridge/Steve Oliff/Todd Klein/Dave McKean/Sam Kieth","Bill Watterson","Gary Russell","Hiromu Arakawa/Akira Watanabe","J.K. Rowling/Mary GrandPré","Hiromu Arakawa/Akira Watanabe"],[4.82,4.76,4.72,4.69,4.65,4.63,4.59,4.57,4.57,4.56]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>title<\/th>\n      <th>authors<\/th>\n      <th>average_rating<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":3},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"title","targets":1},{"name":"authors","targets":2},{"name":"average_rating","targets":3}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>Podemos observar que la saga “Calvin and Hobbes” de Bill Watterson tiene un gran éxito en Goodreads y que la mayoría de libros en el top son cómics o mangas. Además, aparecen sagas muy conocidas como “Harry Potter” y “El señor de los anillos”.</p>
+<hr></section><section id="quién-debería-escribir-nuestro-libro" class="level2"><h2 class="anchored" data-anchor-id="quién-debería-escribir-nuestro-libro">¿Quién debería escribir nuestro libro?</h2>
+<p>Para continuar formando el mejor libro, vamos a ver qué autores tienen mejor nota media filtrando también con más de 10.000 reviews y que sean libros individuales.</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold"><summary>Código</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>top_autores <span class="ot">&lt;-</span> goodreads <span class="sc">%&gt;%</span> </span>
+<span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">filter</span> (ratings_count <span class="sc">&gt;=</span> <span class="dv">10000</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-3"><a href="#cb5-3"></a>  <span class="fu">filter</span> (<span class="sc">!</span><span class="fu">str_detect</span>(title, <span class="fu">regex</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">bset</span><span class="sc">\\</span><span class="st">b"</span>, <span class="at">ignore_case =</span> <span class="cn">TRUE</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-4"><a href="#cb5-4"></a>  <span class="fu">filter</span> (<span class="sc">!</span><span class="fu">str_detect</span>(title, <span class="fu">regex</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">bcollection</span><span class="sc">\\</span><span class="st">b"</span>, <span class="at">ignore_case =</span> <span class="cn">TRUE</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-5"><a href="#cb5-5"></a>  <span class="fu">group_by</span> (authors) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-6"><a href="#cb5-6"></a>  <span class="fu">summarise</span> (<span class="at">nota_media =</span> <span class="fu">weighted.mean</span>(average_rating, <span class="at">w =</span> ratings_count)) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-7"><a href="#cb5-7"></a>  <span class="fu">arrange</span> (<span class="fu">desc</span>(nota_media)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a>  <span class="fu">head</span> (<span class="dv">10</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-9"><a href="#cb5-9"></a>  <span class="fu">mutate</span> (<span class="at">autores =</span> <span class="fu">str_trunc</span>(authors, <span class="dv">20</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a>  <span class="fu">ungroup</span> ()</span>
+<span id="cb5-11"><a href="#cb5-11"></a></span>
+<span id="cb5-12"><a href="#cb5-12"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span> (top_autores, <span class="fu">aes</span>(<span class="at">x =</span> nota_media, <span class="at">y =</span> <span class="fu">reorder</span>(autores, nota_media))) <span class="sc">+</span> </span>
+<span id="cb5-13"><a href="#cb5-13"></a>  <span class="fu">geom_col</span> (<span class="at">fill =</span> <span class="st">"#7831a2"</span>) <span class="sc">+</span></span>
+<span id="cb5-14"><a href="#cb5-14"></a>  <span class="fu">coord_cartesian</span> (<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">5</span>)) <span class="sc">+</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a>  <span class="fu">labs</span> (<span class="at">title =</span> <span class="st">"Autores con mejor media"</span>, </span>
+<span id="cb5-16"><a href="#cb5-16"></a>        <span class="at">x =</span> <span class="st">"Nota media"</span>, <span class="at">y =</span> <span class="st">"Autores"</span>)</span>
+<span id="cb5-17"><a href="#cb5-17"></a></span>
+<span id="cb5-18"><a href="#cb5-18"></a>p2</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><a href="my_trabajo_BigData_files/figure-html/unnamed-chunk-5-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="my_trabajo_BigData_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Se puede observar, como se esperaba al ver el top 10 de libros, que el autor con mejor nota media es Bill Watterson. Aunque también podemos ver a Neil Gaiman en tres posiciones diferentes del top, al tratarse de él junto a muchos otros autores, preferimos quedarnos con B. Watterson para que se trate únicamente de un autor.</p>
+<hr></section><section id="cuántas-páginas-debe-tener-nuestro-libro" class="level2"><h2 class="anchored" data-anchor-id="cuántas-páginas-debe-tener-nuestro-libro">¿Cuántas páginas debe tener nuestro libro?</h2>
+<p>Ahora, vamos a ver cómo de largo tiene que ser nuestro libro basándonos en las reviews de la gente.</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold"><summary>Código</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>p3 <span class="ot">&lt;-</span> goodreads <span class="sc">%&gt;%</span> </span>
+<span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">mutate</span> (<span class="at">rang_pag =</span> <span class="fu">round</span>(num_pages <span class="sc">/</span> <span class="dv">25</span>) <span class="sc">*</span> <span class="dv">25</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-3"><a href="#cb6-3"></a>  <span class="fu">group_by</span> (rang_pag) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-4"><a href="#cb6-4"></a>  <span class="fu">summarise</span> (<span class="at">notita =</span> <span class="fu">weighted.mean</span>(average_rating, <span class="at">w =</span> ratings_count)) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-5"><a href="#cb6-5"></a>  <span class="fu">ggplot</span> (<span class="fu">aes</span>(<span class="at">x =</span> rang_pag, <span class="at">y =</span> notita)) <span class="sc">+</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a>  <span class="fu">geom_area</span> (<span class="at">fill =</span> <span class="st">"#7831a2"</span>) <span class="sc">+</span> </span>
+<span id="cb6-7"><a href="#cb6-7"></a>  <span class="fu">coord_cartesian</span> (<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1500</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">5</span>)) <span class="sc">+</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a>  <span class="fu">labs</span> (<span class="at">title =</span> <span class="st">"Nota media por cada 50 páginas"</span>,</span>
+<span id="cb6-9"><a href="#cb6-9"></a>       <span class="at">x =</span> <span class="st">"Número de páginas"</span>, <span class="at">y =</span> <span class="st">"Nota Media"</span>)</span>
+<span id="cb6-10"><a href="#cb6-10"></a></span>
+<span id="cb6-11"><a href="#cb6-11"></a>p3</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><a href="my_trabajo_BigData_files/figure-html/unnamed-chunk-6-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="my_trabajo_BigData_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Codigo inspirado de <a href="https://r-graph-gallery.com">aquí</a>.</p>
+<p>Podemos ver que el rango de mejores reviews está entorno a las 1.300 páginas por lo que nuestro libro tendrá que situarse en ese rango.</p>
+<hr></section><section id="en-qué-idioma-debería-estar-nuestro-libro" class="level2"><h2 class="anchored" data-anchor-id="en-qué-idioma-debería-estar-nuestro-libro">¿En qué idioma debería estar nuestro libro?</h2>
+<p>Por último, queremos echar un vistazo a qué idiomas reciben mejores reviews para decidir en qué idioma debería escribirse nuestro libro para que sea el mejor. Para ello, realizaremos un gráfico de violín unificando todos los diferentes códigos de inglés para que cuenten como uno solo y filtrando los diez idiomas con mejor nota media.</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold"><summary>Código</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>top_idioma <span class="ot">&lt;-</span> goodreads <span class="sc">%&gt;%</span> </span>
+<span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">mutate</span> (<span class="at">language_code =</span> <span class="fu">fct_collapse</span>(language_code,</span>
+<span id="cb7-3"><a href="#cb7-3"></a>    <span class="st">"eng"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"eng"</span>, <span class="st">"en-GB"</span>, <span class="st">"en-US"</span>, <span class="st">"en-CA"</span>, <span class="st">"enm"</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-4"><a href="#cb7-4"></a>  <span class="fu">group_by</span> (language_code) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-5"><a href="#cb7-5"></a>  <span class="fu">summarise</span> (<span class="at">media =</span> <span class="fu">weighted.mean</span>(average_rating, <span class="at">w =</span> ratings_count)) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-6"><a href="#cb7-6"></a>  <span class="fu">arrange</span> (<span class="fu">desc</span>(media)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a>  <span class="fu">head</span> (<span class="dv">10</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-8"><a href="#cb7-8"></a>  <span class="fu">pull</span>(language_code) </span>
+<span id="cb7-9"><a href="#cb7-9"></a></span>
+<span id="cb7-10"><a href="#cb7-10"></a>p4 <span class="ot">&lt;-</span> goodreads <span class="sc">%&gt;%</span> </span>
+<span id="cb7-11"><a href="#cb7-11"></a>  <span class="fu">mutate</span> (<span class="at">language_code =</span> <span class="fu">fct_collapse</span>(language_code,</span>
+<span id="cb7-12"><a href="#cb7-12"></a>    <span class="st">"eng"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"eng"</span>, <span class="st">"en-GB"</span>, <span class="st">"en-US"</span>, <span class="st">"en-CA"</span>, <span class="st">"enm"</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-13"><a href="#cb7-13"></a>  <span class="fu">filter</span> (language_code <span class="sc">%in%</span> top_idioma) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-14"><a href="#cb7-14"></a>  <span class="fu">ggplot</span> (<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(language_code, <span class="sc">-</span>average_rating), <span class="at">y =</span> average_rating)) <span class="sc">+</span> </span>
+<span id="cb7-15"><a href="#cb7-15"></a>  <span class="fu">geom_violin</span> (<span class="at">fill =</span> <span class="st">"#7831a2"</span>) <span class="sc">+</span></span>
+<span id="cb7-16"><a href="#cb7-16"></a>  <span class="fu">coord_cartesian</span> (<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">5</span>)) <span class="sc">+</span></span>
+<span id="cb7-17"><a href="#cb7-17"></a>  <span class="fu">labs</span> (<span class="at">title =</span> <span class="st">"Nota media por idiomas"</span>,</span>
+<span id="cb7-18"><a href="#cb7-18"></a>       <span class="at">x =</span> <span class="st">"Idioma"</span>, <span class="at">y =</span> <span class="st">"Nota Media"</span>)</span>
+<span id="cb7-19"><a href="#cb7-19"></a></span>
+<span id="cb7-20"><a href="#cb7-20"></a>p4</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><a href="my_trabajo_BigData_files/figure-html/unnamed-chunk-7-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="my_trabajo_BigData_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Codigo inspirado de <a href="https://r-graph-gallery.com/267-reorder-a-variable-in-ggplot2.html">aquí</a>.</p>
+<p>Se puede observar que el idioma con mejor nota media es el chino. Sin embargo, para comprobar si realmente este idioma tiene tantos lectores potenciales, analizaremos cuáles son los idiomas más hablados.</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold"><summary>Código</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>top_hablantes <span class="ot">&lt;-</span> hablantes <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">mutate</span> (<span class="at">porcentaje =</span> ((<span class="st">`</span><span class="at">Total Speakers</span><span class="st">`</span>)<span class="sc">/</span><span class="fu">sum</span>(<span class="st">`</span><span class="at">Total Speakers</span><span class="st">`</span>))<span class="sc">*</span><span class="dv">100</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-3"><a href="#cb8-3"></a>  <span class="fu">select</span> (Language, porcentaje) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-4"><a href="#cb8-4"></a>  <span class="fu">arrange</span> (<span class="fu">desc</span>(porcentaje)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a>  <span class="fu">head</span> (<span class="dv">10</span>) </span>
+<span id="cb8-6"><a href="#cb8-6"></a></span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="fu">hchart</span>(top_hablantes, <span class="st">"pie"</span>, <span class="fu">hcaes</span>(<span class="at">x =</span> Language, <span class="at">y =</span> porcentaje))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div class="cell-output-display">
+<div class="highchart html-widget html-fill-item" id="htmlwidget-e82c31fc4be114943a8c" style="width:95%;height:1500px;"></div>
+<script type="application/json" data-for="htmlwidget-e82c31fc4be114943a8c">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":null},"yAxis":{"title":{"text":"porcentaje"},"type":"linear"},"credits":{"enabled":false},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}}},"series":[{"group":"group","data":[{"Language":"English","porcentaje":13.68092733665274,"y":13.68092733665274,"name":"English"},{"Language":"Mandarin Chinese","porcentaje":13.49039826586085,"y":13.49039826586085,"name":"Mandarin Chinese"},{"Language":"Hindi","porcentaje":7.435997799076098,"y":7.435997799076098,"name":"Hindi"},{"Language":"Spanish","porcentaje":6.455690038060196,"y":6.455690038060196,"name":"Spanish"},{"Language":"French","porcentaje":3.380727779390268,"y":3.380727779390268,"name":"French"},{"Language":"Standard Arabic","porcentaje":3.310264460175818,"y":3.310264460175818,"name":"Standard Arabic"},{"Language":"Bengali","porcentaje":3.202166731015291,"y":3.202166731015291,"name":"Bengali"},{"Language":"Russian","porcentaje":3.119833251245616,"y":3.119833251245616,"name":"Russian"},{"Language":"Portuguese","porcentaje":2.829157667147402,"y":2.829157667147402,"name":"Portuguese"},{"Language":"Indonesian","porcentaje":2.401041984873143,"y":2.401041984873143,"name":"Indonesian"}],"type":"pie"}],"xAxis":{"type":"category","title":{"text":"Language"},"categories":null}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>Este gráfico nos muestra que el chino es el segundo idioma más hablado, con muy poca diferencia respecto al primer puesto, que corresponde al inglés. Por lo tanto, escribiendo el libro en chino sí podríamos llegar a una audiencia muy amplia.</p>
+<p>De esta manera, ¡¡hemos conseguido definir cómo debería ser el <strong>mejor libro del mundo</strong>!! Este debería ser un cómic o manga escrito por Bill Watterson, en chino, y de unas 1.300 páginas.</p>
 <hr>
-<section id="primer-gráfico" class="level3"><h3 class="anchored" data-anchor-id="primer-gráfico">Primer gráfico</h3>
-<div class="cell" data-layout-align="center">
-<details open="" class="code-fold"><summary>Código</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">#- primer gráfico</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> df, </span>
-<span id="cb4-3"><a href="#cb4-3"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, <span class="at">y =</span> body_mass_g, <span class="at">color =</span> species)) <span class="sc">+</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a>     <span class="fu">geom_point</span>()</span>
-<span id="cb4-5"><a href="#cb4-5"></a>p</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output-display">
+<p>¡Y hasta aquí mi trabajo de Big Data, espero que os haya gustado!</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="my_trabajo_BigData_files/figure-html/unnamed-chunk-5-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="my_trabajo_BigData_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%"></a></p>
-</figure>
-</div>
-</div>
-</div>
-<hr></section><section id="segundo" class="level3"><h3 class="anchored" data-anchor-id="segundo">Segundo</h3>
-<div class="cell" data-layout-align="center">
-<details open="" class="code-fold"><summary>Código</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">#- segundo gráfico</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) </span>
-<span id="cb5-3"><a href="#cb5-3"></a></span>
-<span id="cb5-4"><a href="#cb5-4"></a>p</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="my_trabajo_BigData_files/figure-html/unnamed-chunk-6-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="my_trabajo_BigData_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%"></a></p>
-</figure>
-</div>
-</div>
-</div>
-<hr></section><section id="el-último" class="level3"><h3 class="anchored" data-anchor-id="el-último">El último</h3>
-<div class="cell" data-layout-align="center">
-<details open="" class="code-fold"><summary>Código</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">#- tercer gráfico</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a>p <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">"black"</span>) </span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="my_trabajo_BigData_files/figure-html/unnamed-chunk-7-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="my_trabajo_BigData_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%"></a></p>
-</figure>
-</div>
-</div>
-</div>
-<p><br></p>
-<p>Con esto acabo mi trabajo para BigData!!</p>
-<p><br></p>
-<hr>
-<p><br></p>
-</section><section id="información-sobre-la-sesión" class="level3"><h3 class="anchored" data-anchor-id="información-sobre-la-sesión">Información sobre la sesión</h3>
-<p>Abajo muestro mi entorno de trabajo y paquetes utilizados</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<details closed=""><summary><span title="Click to Expand"> current session info </span>
-</summary><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a></span>
-<span id="cb7-2"><a href="#cb7-2"></a>─ Session info ───────────────────────────────────────────────────────────────</span>
-<span id="cb7-3"><a href="#cb7-3"></a> setting  value</span>
-<span id="cb7-4"><a href="#cb7-4"></a> version  R version <span class="dv">4</span>.<span class="fl">5.1</span> (<span class="dv">2025-06-13</span> ucrt)</span>
-<span id="cb7-5"><a href="#cb7-5"></a> os       Windows <span class="dv">11</span> <span class="fu">x64</span> (build <span class="dv">26100</span>)</span>
-<span id="cb7-6"><a href="#cb7-6"></a> system   x86_64, mingw32</span>
-<span id="cb7-7"><a href="#cb7-7"></a> ui       RTerm</span>
-<span id="cb7-8"><a href="#cb7-8"></a> <span class="fu">language</span> (EN)</span>
-<span id="cb7-9"><a href="#cb7-9"></a> collate  Spanish_Spain.utf8</span>
-<span id="cb7-10"><a href="#cb7-10"></a> ctype    Spanish_Spain.utf8</span>
-<span id="cb7-11"><a href="#cb7-11"></a> tz       Europe<span class="sc">/</span>Madrid</span>
-<span id="cb7-12"><a href="#cb7-12"></a> date     <span class="dv">2025-12-03</span></span>
-<span id="cb7-13"><a href="#cb7-13"></a> pandoc   <span class="fl">3.4</span> <span class="sc">@</span> C<span class="sc">:</span><span class="er">/</span>Program Files<span class="sc">/</span>RStudio<span class="sc">/</span>resources<span class="sc">/</span>app<span class="sc">/</span>bin<span class="sc">/</span>quarto<span class="sc">/</span>bin<span class="sc">/</span>tools<span class="sc">/</span> (via rmarkdown)</span>
-<span id="cb7-14"><a href="#cb7-14"></a> quarto   <span class="cn">NA</span> <span class="sc">@</span> C<span class="sc">:</span>\\Users\\lucib\\AppData\\Local\\Programs\\Quarto\\bin\\quarto.exe</span>
-<span id="cb7-15"><a href="#cb7-15"></a></span>
-<span id="cb7-16"><a href="#cb7-16"></a>─ Packages ───────────────────────────────────────────────────────────────────</span>
-<span id="cb7-17"><a href="#cb7-17"></a> package        <span class="sc">*</span> version <span class="fu">date</span> (UTC) lib source</span>
-<span id="cb7-18"><a href="#cb7-18"></a> cli              <span class="dv">3</span>.<span class="fl">6.5</span>   <span class="dv">2025-04-23</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-19"><a href="#cb7-19"></a> clipr            <span class="dv">0</span>.<span class="fl">8.0</span>   <span class="dv">2022-02-22</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-20"><a href="#cb7-20"></a> desc             <span class="dv">1</span>.<span class="fl">4.3</span>   <span class="dv">2023-12-10</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-21"><a href="#cb7-21"></a> details          <span class="dv">0</span>.<span class="fl">4.0</span>   <span class="dv">2025-02-09</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.2</span>)</span>
-<span id="cb7-22"><a href="#cb7-22"></a> digest           <span class="dv">0</span>.<span class="fl">6.37</span>  <span class="dv">2024-08-19</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-23"><a href="#cb7-23"></a> dplyr          <span class="sc">*</span> <span class="dv">1</span>.<span class="fl">1.4</span>   <span class="dv">2023-11-17</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-24"><a href="#cb7-24"></a> evaluate         <span class="dv">1</span>.<span class="fl">0.5</span>   <span class="dv">2025-08-27</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-25"><a href="#cb7-25"></a> farver           <span class="dv">2</span>.<span class="fl">1.2</span>   <span class="dv">2024-05-13</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-26"><a href="#cb7-26"></a> fastmap          <span class="dv">1</span>.<span class="fl">2.0</span>   <span class="dv">2024-05-15</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-27"><a href="#cb7-27"></a> forcats        <span class="sc">*</span> <span class="dv">1</span>.<span class="fl">0.0</span>   <span class="dv">2023-01-29</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-28"><a href="#cb7-28"></a> generics         <span class="dv">0</span>.<span class="fl">1.4</span>   <span class="dv">2025-05-09</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-29"><a href="#cb7-29"></a> ggplot2        <span class="sc">*</span> <span class="dv">4</span>.<span class="fl">0.0</span>   <span class="dv">2025-09-11</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-30"><a href="#cb7-30"></a> glue             <span class="dv">1</span>.<span class="fl">8.0</span>   <span class="dv">2024-09-30</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-31"><a href="#cb7-31"></a> gtable           <span class="dv">0</span>.<span class="fl">3.6</span>   <span class="dv">2024-10-25</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-32"><a href="#cb7-32"></a> hms              <span class="dv">1</span>.<span class="fl">1.3</span>   <span class="dv">2023-03-21</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-33"><a href="#cb7-33"></a> htmltools        <span class="dv">0</span>.<span class="dv">5</span>.<span class="fl">8.1</span> <span class="dv">2024-04-04</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-34"><a href="#cb7-34"></a> htmlwidgets      <span class="dv">1</span>.<span class="fl">6.4</span>   <span class="dv">2023-12-06</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-35"><a href="#cb7-35"></a> httr             <span class="dv">1</span>.<span class="fl">4.7</span>   <span class="dv">2023-08-15</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-36"><a href="#cb7-36"></a> jsonlite         <span class="dv">2</span>.<span class="fl">0.0</span>   <span class="dv">2025-03-27</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-37"><a href="#cb7-37"></a> knitr            <span class="fl">1.50</span>    <span class="dv">2025-03-16</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-38"><a href="#cb7-38"></a> labeling         <span class="dv">0</span>.<span class="fl">4.3</span>   <span class="dv">2023-08-29</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.0</span>)</span>
-<span id="cb7-39"><a href="#cb7-39"></a> lattice          <span class="fl">0.22</span><span class="dv">-7</span>  <span class="dv">2025-04-02</span> [<span class="dv">2</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-40"><a href="#cb7-40"></a> lifecycle        <span class="dv">1</span>.<span class="fl">0.4</span>   <span class="dv">2023-11-07</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-41"><a href="#cb7-41"></a> lubridate      <span class="sc">*</span> <span class="dv">1</span>.<span class="fl">9.4</span>   <span class="dv">2024-12-08</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-42"><a href="#cb7-42"></a> magrittr         <span class="dv">2</span>.<span class="fl">0.3</span>   <span class="dv">2022-03-30</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-43"><a href="#cb7-43"></a> Matrix           <span class="fl">1.7</span><span class="dv">-3</span>   <span class="dv">2025-03-11</span> [<span class="dv">2</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-44"><a href="#cb7-44"></a> mgcv             <span class="fl">1.9</span><span class="dv">-3</span>   <span class="dv">2025-04-04</span> [<span class="dv">2</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-45"><a href="#cb7-45"></a> nlme             <span class="fl">3.1</span><span class="dv">-168</span> <span class="dv">2025-03-31</span> [<span class="dv">2</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-46"><a href="#cb7-46"></a> palmerpenguins <span class="sc">*</span> <span class="dv">0</span>.<span class="fl">1.1</span>   <span class="dv">2022-08-15</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-47"><a href="#cb7-47"></a> pillar           <span class="dv">1</span>.<span class="fl">11.1</span>  <span class="dv">2025-09-17</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-48"><a href="#cb7-48"></a> pkgconfig        <span class="dv">2</span>.<span class="fl">0.3</span>   <span class="dv">2019-09-22</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-49"><a href="#cb7-49"></a> png              <span class="fl">0.1</span><span class="dv">-8</span>   <span class="dv">2022-11-29</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.0</span>)</span>
-<span id="cb7-50"><a href="#cb7-50"></a> purrr          <span class="sc">*</span> <span class="dv">1</span>.<span class="fl">1.0</span>   <span class="dv">2025-07-10</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-51"><a href="#cb7-51"></a> R6               <span class="dv">2</span>.<span class="fl">6.1</span>   <span class="dv">2025-02-15</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-52"><a href="#cb7-52"></a> RColorBrewer     <span class="fl">1.1</span><span class="dv">-3</span>   <span class="dv">2022-04-03</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.0</span>)</span>
-<span id="cb7-53"><a href="#cb7-53"></a> readr          <span class="sc">*</span> <span class="dv">2</span>.<span class="fl">1.5</span>   <span class="dv">2024-01-10</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-54"><a href="#cb7-54"></a> rlang            <span class="dv">1</span>.<span class="fl">1.6</span>   <span class="dv">2025-04-11</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-55"><a href="#cb7-55"></a> rmarkdown        <span class="fl">2.29</span>    <span class="dv">2024-11-04</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-56"><a href="#cb7-56"></a> rstudioapi       <span class="dv">0</span>.<span class="fl">17.1</span>  <span class="dv">2024-10-22</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-57"><a href="#cb7-57"></a> S7               <span class="dv">0</span>.<span class="fl">2.0</span>   <span class="dv">2024-11-07</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-58"><a href="#cb7-58"></a> scales           <span class="dv">1</span>.<span class="fl">4.0</span>   <span class="dv">2025-04-24</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-59"><a href="#cb7-59"></a> sessioninfo      <span class="dv">1</span>.<span class="fl">2.3</span>   <span class="dv">2025-02-05</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-60"><a href="#cb7-60"></a> stringi          <span class="dv">1</span>.<span class="fl">8.7</span>   <span class="dv">2025-03-27</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.0</span>)</span>
-<span id="cb7-61"><a href="#cb7-61"></a> stringr        <span class="sc">*</span> <span class="dv">1</span>.<span class="fl">5.2</span>   <span class="dv">2025-09-08</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-62"><a href="#cb7-62"></a> tibble         <span class="sc">*</span> <span class="dv">3</span>.<span class="fl">3.0</span>   <span class="dv">2025-06-08</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-63"><a href="#cb7-63"></a> tidyr          <span class="sc">*</span> <span class="dv">1</span>.<span class="fl">3.1</span>   <span class="dv">2024-01-24</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-64"><a href="#cb7-64"></a> tidyselect       <span class="dv">1</span>.<span class="fl">2.1</span>   <span class="dv">2024-03-11</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-65"><a href="#cb7-65"></a> tidyverse      <span class="sc">*</span> <span class="dv">2</span>.<span class="fl">0.0</span>   <span class="dv">2023-02-22</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-66"><a href="#cb7-66"></a> timechange       <span class="dv">0</span>.<span class="fl">3.0</span>   <span class="dv">2024-01-18</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-67"><a href="#cb7-67"></a> tzdb             <span class="dv">0</span>.<span class="fl">5.0</span>   <span class="dv">2025-03-15</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-68"><a href="#cb7-68"></a> vctrs            <span class="dv">0</span>.<span class="fl">6.5</span>   <span class="dv">2023-12-01</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-69"><a href="#cb7-69"></a> withr            <span class="dv">3</span>.<span class="fl">0.2</span>   <span class="dv">2024-10-28</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-70"><a href="#cb7-70"></a> xfun             <span class="fl">0.53</span>    <span class="dv">2025-08-19</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.1</span>)</span>
-<span id="cb7-71"><a href="#cb7-71"></a> yaml             <span class="dv">2</span>.<span class="fl">3.10</span>  <span class="dv">2024-07-26</span> [<span class="dv">1</span>] <span class="fu">CRAN</span> (R <span class="dv">4</span>.<span class="fl">5.0</span>)</span>
-<span id="cb7-72"><a href="#cb7-72"></a></span>
-<span id="cb7-73"><a href="#cb7-73"></a> [<span class="dv">1</span>] C<span class="sc">:</span><span class="er">/</span>Users<span class="sc">/</span>lucib<span class="sc">/</span>AppData<span class="sc">/</span>Local<span class="sc">/</span>R<span class="sc">/</span>win<span class="sc">-</span>library<span class="sc">/</span><span class="fl">4.5</span></span>
-<span id="cb7-74"><a href="#cb7-74"></a> [<span class="dv">2</span>] C<span class="sc">:</span><span class="er">/</span>Program Files<span class="sc">/</span>R<span class="sc">/</span>R<span class="dv">-4</span>.<span class="fl">5.1</span><span class="sc">/</span>library</span>
-<span id="cb7-75"><a href="#cb7-75"></a> <span class="sc">*</span> ── Packages attached to the search path.</span>
-<span id="cb7-76"><a href="#cb7-76"></a></span>
-<span id="cb7-77"><a href="#cb7-77"></a>──────────────────────────────────────────────────────────────────────────────</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</details><p><br></p>
-</div>
+<figure class="figure"><p><a href="./imagenes/descarga2.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Una foto mía"><img src="./imagenes/descarga2.jpg" class="img-fluid figure-img" alt="Una foto mía"></a></p>
+<figcaption>Una foto mía</figcaption></figure>
 </div>
 
 
 <!-- -->
 
-</section></section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reutilizar</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.es">CC BY 4.0</a></div></div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reutilizar</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.es">CC BY 4.0</a></div></div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -857,147 +870,217 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Ejecutar el código</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">---</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="an">title:</span><span class="co"> "Los pingüinos molan"</span></span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="an">description:</span><span class="co"> |</span></span>
-<span id="cb8-4"><a href="#cb8-4"></a><span class="co">  Viendo si con los datos de pingüinos se aprecia la paradoja de Simpson</span></span>
-<span id="cb8-5"><a href="#cb8-5"></a><span class="an">author:</span></span>
-<span id="cb8-6"><a href="#cb8-6"></a><span class="co">  - name: Pedro Navaja</span></span>
-<span id="cb8-7"><a href="#cb8-7"></a><span class="co">    affiliation: Universitat de València</span></span>
-<span id="cb8-8"><a href="#cb8-8"></a><span class="co">    affiliation-url: https://www.uv.es</span></span>
-<span id="cb8-9"><a href="#cb8-9"></a><span class="an">date:</span><span class="co"> 2022-11-01                           #--</span></span>
-<span id="cb8-10"><a href="#cb8-10"></a><span class="an">categories:</span><span class="co"> [trabajo BigData, pinguinos]   #--</span></span>
-<span id="cb8-11"><a href="#cb8-11"></a><span class="an">image:</span><span class="co"> "./imagenes/imagen_01.png"</span></span>
-<span id="cb8-12"><a href="#cb8-12"></a><span class="an">title-block-banner:</span><span class="co"> true #- {true, false, "green","#AA0000"}</span></span>
-<span id="cb8-13"><a href="#cb8-13"></a><span class="an">title-block-banner-color:</span><span class="co"> "red"    #-"#FFFFFF" </span></span>
-<span id="cb8-14"><a href="#cb8-14"></a><span class="an">toc-depth:</span><span class="co"> 3</span></span>
-<span id="cb8-15"><a href="#cb8-15"></a><span class="an">smooth-scroll:</span><span class="co"> true</span></span>
-<span id="cb8-16"><a href="#cb8-16"></a><span class="an">format:</span><span class="co"> </span></span>
-<span id="cb8-17"><a href="#cb8-17"></a><span class="co">  html:</span></span>
-<span id="cb8-18"><a href="#cb8-18"></a><span class="co">    #backgroundcolor: "#F1F3F4"</span></span>
-<span id="cb8-19"><a href="#cb8-19"></a><span class="co">    #embed-resources: true</span></span>
-<span id="cb8-20"><a href="#cb8-20"></a><span class="co">    link-external-newwindow: true</span></span>
-<span id="cb8-21"><a href="#cb8-21"></a><span class="co">    #css: assets/my_css_file.css   #- CUIDADO!!!!</span></span>
-<span id="cb8-22"><a href="#cb8-22"></a><span class="an">code-tools:</span><span class="co"> true</span></span>
-<span id="cb8-23"><a href="#cb8-23"></a><span class="an">code-link:</span><span class="co"> true</span></span>
-<span id="cb8-24"><a href="#cb8-24"></a><span class="co">---</span></span>
-<span id="cb8-25"><a href="#cb8-25"></a></span>
-<span id="cb8-26"><a href="#cb8-26"></a></span>
-<span id="cb8-27"><a href="#cb8-27"></a><span class="fu">## Intro </span></span>
-<span id="cb8-28"><a href="#cb8-28"></a></span>
-<span id="cb8-29"><a href="#cb8-29"></a>Vamos a utilizar datos del paquete <span class="in">`palmerpenguins`</span>. El repo del paquete en CRAN está <span class="co">[</span><span class="ot">aquí</span><span class="co">](https://cran.r-project.org/web/packages/palmerpenguins/index.html)</span>, el repo de Github está <span class="co">[</span><span class="ot">aquí</span><span class="co">](https://github.com/allisonhorst/palmerpenguins)</span> y la página web del paquete está <span class="co">[</span><span class="ot">aquí</span><span class="co">](https://allisonhorst.github.io/palmerpenguins/)</span>.</span>
-<span id="cb8-30"><a href="#cb8-30"></a></span>
-<span id="cb8-31"><a href="#cb8-31"></a>Los datos se pueden cargar en la memoria de de R/RStudio de esta forma:</span>
-<span id="cb8-32"><a href="#cb8-32"></a></span>
-<span id="cb8-35"><a href="#cb8-35"></a><span class="in">```{r}</span></span>
-<span id="cb8-36"><a href="#cb8-36"></a><span class="co"># install.packages("palmerpenguins")</span></span>
-<span id="cb8-37"><a href="#cb8-37"></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb8-38"><a href="#cb8-38"></a>df <span class="ot">&lt;-</span> palmerpenguins<span class="sc">::</span>penguins</span>
-<span id="cb8-39"><a href="#cb8-39"></a><span class="in">```</span></span>
-<span id="cb8-40"><a href="#cb8-40"></a></span>
-<span id="cb8-41"><a href="#cb8-41"></a></span>
-<span id="cb8-42"><a href="#cb8-42"></a>El dataset contiene observaciones sobre un conjunto de <span class="in">`r nrow(df)`</span> pingüinos de 3 especies. Hay  <span class="in">`r ncol(df)`</span> variables.</span>
-<span id="cb8-43"><a href="#cb8-43"></a></span>
-<span id="cb8-44"><a href="#cb8-44"></a>---</span>
-<span id="cb8-45"><a href="#cb8-45"></a></span>
-<span id="cb8-46"><a href="#cb8-46"></a><span class="fu">## Los pingüinos molan</span></span>
-<span id="cb8-47"><a href="#cb8-47"></a></span>
-<span id="cb8-48"><a href="#cb8-48"></a>Vamos a ver una foto de un pingüinos</span>
-<span id="cb8-49"><a href="#cb8-49"></a></span>
-<span id="cb8-52"><a href="#cb8-52"></a><span class="in">```{r}</span></span>
-<span id="cb8-53"><a href="#cb8-53"></a><span class="co">#| echo: false</span></span>
-<span id="cb8-54"><a href="#cb8-54"></a>my_url <span class="ot">&lt;-</span> <span class="st">"https://upload.wikimedia.org/wikipedia/commons/a/a9/Ping%C3%BCinos.JPG?20090406212143"</span></span>
-<span id="cb8-55"><a href="#cb8-55"></a><span class="in">```</span></span>
-<span id="cb8-56"><a href="#cb8-56"></a></span>
-<span id="cb8-57"><a href="#cb8-57"></a></span>
-<span id="cb8-58"><a href="#cb8-58"></a><span class="al">![Un pingüino chulo](https://upload.wikimedia.org/wikipedia/commons/a/a9/Ping%C3%BCinos.JPG?20090406212143)</span></span>
-<span id="cb8-59"><a href="#cb8-59"></a></span>
-<span id="cb8-60"><a href="#cb8-60"></a>---</span>
-<span id="cb8-61"><a href="#cb8-61"></a></span>
-<span id="cb8-62"><a href="#cb8-62"></a>Sí, lo pingüinos molan, así que vamos a poner otra foto de pingüinos que tenemos en nuestro PC pero la vamos a poner en el margen:</span>
-<span id="cb8-63"><a href="#cb8-63"></a></span>
-<span id="cb8-64"><a href="#cb8-64"></a>::: {.column-margin}</span>
-<span id="cb8-65"><a href="#cb8-65"></a></span>
-<span id="cb8-66"><a href="#cb8-66"></a><span class="al">![](./imagenes/imagen_01.png)</span>{fig-align="center"}</span>
-<span id="cb8-67"><a href="#cb8-67"></a></span>
-<span id="cb8-68"><a href="#cb8-68"></a>:::</span>
-<span id="cb8-69"><a href="#cb8-69"></a></span>
-<span id="cb8-70"><a href="#cb8-70"></a>---</span>
-<span id="cb8-71"><a href="#cb8-71"></a></span>
-<span id="cb8-72"><a href="#cb8-72"></a><span class="fu">## Algunos gráficos</span></span>
-<span id="cb8-73"><a href="#cb8-73"></a></span>
-<span id="cb8-74"><a href="#cb8-74"></a></span>
-<span id="cb8-75"><a href="#cb8-75"></a>Bueno pues vamos a hacer algún gráfico, pero claro antes he de cargar los paquetes</span>
-<span id="cb8-76"><a href="#cb8-76"></a></span>
-<span id="cb8-79"><a href="#cb8-79"></a><span class="in">```{r}</span></span>
-<span id="cb8-80"><a href="#cb8-80"></a><span class="co">#| eval: true</span></span>
-<span id="cb8-81"><a href="#cb8-81"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb8-82"><a href="#cb8-82"></a><span class="in">```</span></span>
-<span id="cb8-83"><a href="#cb8-83"></a></span>
-<span id="cb8-84"><a href="#cb8-84"></a></span>
-<span id="cb8-85"><a href="#cb8-85"></a>Arreglo los datos</span>
-<span id="cb8-86"><a href="#cb8-86"></a></span>
-<span id="cb8-89"><a href="#cb8-89"></a><span class="in">```{r}</span></span>
-<span id="cb8-90"><a href="#cb8-90"></a><span class="co">#- cojos datos de pingüinos y arreglo un poco </span></span>
-<span id="cb8-91"><a href="#cb8-91"></a>df <span class="ot">&lt;-</span> palmerpenguins<span class="sc">::</span>penguins <span class="sc">%&gt;%</span> </span>
-<span id="cb8-92"><a href="#cb8-92"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(species, bill_depth_mm, body_mass_g) <span class="sc">%&gt;%</span> </span>
-<span id="cb8-93"><a href="#cb8-93"></a>  tidyr<span class="sc">::</span><span class="fu">drop_na</span>()</span>
-<span id="cb8-94"><a href="#cb8-94"></a><span class="in">```</span></span>
-<span id="cb8-95"><a href="#cb8-95"></a></span>
-<span id="cb8-96"><a href="#cb8-96"></a>---</span>
-<span id="cb8-97"><a href="#cb8-97"></a></span>
-<span id="cb8-98"><a href="#cb8-98"></a><span class="fu">### Primer gráfico</span></span>
-<span id="cb8-99"><a href="#cb8-99"></a></span>
-<span id="cb8-100"><a href="#cb8-100"></a></span>
-<span id="cb8-103"><a href="#cb8-103"></a><span class="in">```{r}</span></span>
-<span id="cb8-104"><a href="#cb8-104"></a><span class="co">#- primer gráfico</span></span>
-<span id="cb8-105"><a href="#cb8-105"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> df, </span>
-<span id="cb8-106"><a href="#cb8-106"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, <span class="at">y =</span> body_mass_g, <span class="at">color =</span> species)) <span class="sc">+</span></span>
-<span id="cb8-107"><a href="#cb8-107"></a>     <span class="fu">geom_point</span>()</span>
-<span id="cb8-108"><a href="#cb8-108"></a>p</span>
-<span id="cb8-109"><a href="#cb8-109"></a><span class="in">```</span></span>
-<span id="cb8-110"><a href="#cb8-110"></a></span>
-<span id="cb8-111"><a href="#cb8-111"></a>---</span>
-<span id="cb8-112"><a href="#cb8-112"></a></span>
-<span id="cb8-113"><a href="#cb8-113"></a><span class="fu">### Segundo</span></span>
-<span id="cb8-114"><a href="#cb8-114"></a></span>
-<span id="cb8-117"><a href="#cb8-117"></a><span class="in">```{r}</span></span>
-<span id="cb8-118"><a href="#cb8-118"></a><span class="co">#- segundo gráfico</span></span>
-<span id="cb8-119"><a href="#cb8-119"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) </span>
-<span id="cb8-120"><a href="#cb8-120"></a></span>
-<span id="cb8-121"><a href="#cb8-121"></a>p</span>
-<span id="cb8-122"><a href="#cb8-122"></a><span class="in">```</span></span>
-<span id="cb8-123"><a href="#cb8-123"></a></span>
-<span id="cb8-124"><a href="#cb8-124"></a>---</span>
-<span id="cb8-125"><a href="#cb8-125"></a></span>
-<span id="cb8-126"><a href="#cb8-126"></a><span class="fu">### El último</span></span>
-<span id="cb8-127"><a href="#cb8-127"></a></span>
-<span id="cb8-130"><a href="#cb8-130"></a><span class="in">```{r}</span></span>
-<span id="cb8-131"><a href="#cb8-131"></a><span class="co">#- tercer gráfico</span></span>
-<span id="cb8-132"><a href="#cb8-132"></a>p <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">"black"</span>) </span>
-<span id="cb8-133"><a href="#cb8-133"></a><span class="in">```</span></span>
-<span id="cb8-134"><a href="#cb8-134"></a></span>
-<span id="cb8-135"><a href="#cb8-135"></a><span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span></span>
-<span id="cb8-136"><a href="#cb8-136"></a></span>
-<span id="cb8-137"><a href="#cb8-137"></a>Con esto acabo mi trabajo para BigData!!</span>
-<span id="cb8-138"><a href="#cb8-138"></a></span>
-<span id="cb8-139"><a href="#cb8-139"></a><span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span></span>
-<span id="cb8-140"><a href="#cb8-140"></a></span>
-<span id="cb8-141"><a href="#cb8-141"></a>----------------------</span>
-<span id="cb8-142"><a href="#cb8-142"></a></span>
-<span id="cb8-143"><a href="#cb8-143"></a><span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span></span>
-<span id="cb8-144"><a href="#cb8-144"></a></span>
-<span id="cb8-145"><a href="#cb8-145"></a><span class="fu">### Información sobre la sesión</span></span>
-<span id="cb8-146"><a href="#cb8-146"></a></span>
-<span id="cb8-147"><a href="#cb8-147"></a>Abajo muestro mi entorno de trabajo y paquetes utilizados</span>
-<span id="cb8-148"><a href="#cb8-148"></a></span>
-<span id="cb8-151"><a href="#cb8-151"></a><span class="in">```{r}</span></span>
-<span id="cb8-152"><a href="#cb8-152"></a><span class="co">#| echo: false</span></span>
-<span id="cb8-153"><a href="#cb8-153"></a>sessioninfo<span class="sc">::</span><span class="fu">session_info</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb8-154"><a href="#cb8-154"></a>  details<span class="sc">::</span><span class="fu">details</span>(<span class="at">summary =</span> <span class="st">'current session info'</span>) </span>
-<span id="cb8-155"><a href="#cb8-155"></a><span class="in">```</span></span>
-<span id="cb8-156"><a href="#cb8-156"></a></span>
-<span id="cb8-157"><a href="#cb8-157"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">---</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="an">title:</span><span class="co"> "El mejor libro"</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="an">description:</span><span class="co"> |</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="co">  Basandonos en las reviews en la aplicacion Goodreads</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="an">author:</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="co">  - name: Lucía Bellido</span></span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="co">    affiliation: Universitat de València</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a><span class="co">    affiliation-url: https://www.uv.es</span></span>
+<span id="cb9-9"><a href="#cb9-9"></a><span class="an">date:</span><span class="co"> 2026-01-07                           #--</span></span>
+<span id="cb9-10"><a href="#cb9-10"></a><span class="an">categories:</span><span class="co"> [trabajo BigData, libros]   #--</span></span>
+<span id="cb9-11"><a href="#cb9-11"></a><span class="an">image:</span><span class="co"> "./imagenes/descarga.png"</span></span>
+<span id="cb9-12"><a href="#cb9-12"></a><span class="an">title-block-banner:</span><span class="co"> true #- {true, false, "green","#AA0000"}</span></span>
+<span id="cb9-13"><a href="#cb9-13"></a><span class="an">title-block-banner-color:</span><span class="co"> "#FFFFFF"    #-"#FFFFFF" </span></span>
+<span id="cb9-14"><a href="#cb9-14"></a><span class="an">toc-depth:</span><span class="co"> 3</span></span>
+<span id="cb9-15"><a href="#cb9-15"></a><span class="an">smooth-scroll:</span><span class="co"> true</span></span>
+<span id="cb9-16"><a href="#cb9-16"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb9-17"><a href="#cb9-17"></a><span class="co">  html:</span></span>
+<span id="cb9-18"><a href="#cb9-18"></a><span class="co">    #backgroundcolor: "#F1F3F4"</span></span>
+<span id="cb9-19"><a href="#cb9-19"></a><span class="co">    #embed-resources: true</span></span>
+<span id="cb9-20"><a href="#cb9-20"></a><span class="co">    link-external-newwindow: true</span></span>
+<span id="cb9-21"><a href="#cb9-21"></a><span class="co">    #css: assets/my_css_file.css   #- CUIDADO!!!!</span></span>
+<span id="cb9-22"><a href="#cb9-22"></a><span class="an">code-tools:</span><span class="co"> true</span></span>
+<span id="cb9-23"><a href="#cb9-23"></a><span class="an">code-link:</span><span class="co"> true</span></span>
+<span id="cb9-24"><a href="#cb9-24"></a><span class="co">---</span></span>
+<span id="cb9-25"><a href="#cb9-25"></a></span>
+<span id="cb9-26"><a href="#cb9-26"></a><span class="fu">## Introducción </span></span>
+<span id="cb9-27"><a href="#cb9-27"></a></span>
+<span id="cb9-28"><a href="#cb9-28"></a>Para este trabajo vamos a estar utilizando datos sobre libros en Goodreads y sus notas, estos se pueden sacar de <span class="co">[</span><span class="ot">aquí</span><span class="co">](https://datahub.io/@gradedSystem/goodreads_dataset)</span>. También utilizaremos datos sobre el número de hablantes de cada idioma que se pueden encontrar <span class="co">[</span><span class="ot">aquí</span><span class="co">](https://www.kaggle.com/datasets/narmelan/100-most-spoken-languages-around-the-world?resource=download)</span></span>
+<span id="cb9-29"><a href="#cb9-29"></a></span>
+<span id="cb9-30"><a href="#cb9-30"></a>Los datos se pueden cargar en la memoria de de R/RStudio de esta forma:</span>
+<span id="cb9-31"><a href="#cb9-31"></a></span>
+<span id="cb9-34"><a href="#cb9-34"></a><span class="in">```{r}</span></span>
+<span id="cb9-35"><a href="#cb9-35"></a><span class="fu">library</span>(readr)</span>
+<span id="cb9-36"><a href="#cb9-36"></a>goodreads <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/goodreads.csv"</span>)</span>
+<span id="cb9-37"><a href="#cb9-37"></a>hablantes <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/Top 100 Languages.csv"</span>)</span>
+<span id="cb9-38"><a href="#cb9-38"></a><span class="in">```</span></span>
+<span id="cb9-39"><a href="#cb9-39"></a></span>
+<span id="cb9-40"><a href="#cb9-40"></a>Y descargamos la biblioteca:</span>
+<span id="cb9-41"><a href="#cb9-41"></a></span>
+<span id="cb9-44"><a href="#cb9-44"></a><span class="in">```{r}</span></span>
+<span id="cb9-45"><a href="#cb9-45"></a><span class="fu">library</span>(gt)</span>
+<span id="cb9-46"><a href="#cb9-46"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb9-47"><a href="#cb9-47"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb9-48"><a href="#cb9-48"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb9-49"><a href="#cb9-49"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb9-50"><a href="#cb9-50"></a><span class="fu">library</span>(plotly)</span>
+<span id="cb9-51"><a href="#cb9-51"></a><span class="fu">library</span>(viridis)</span>
+<span id="cb9-52"><a href="#cb9-52"></a><span class="fu">library</span>(hrbrthemes)</span>
+<span id="cb9-53"><a href="#cb9-53"></a><span class="fu">library</span>(highcharter)</span>
+<span id="cb9-54"><a href="#cb9-54"></a><span class="in">```</span></span>
+<span id="cb9-55"><a href="#cb9-55"></a></span>
+<span id="cb9-56"><a href="#cb9-56"></a>---</span>
+<span id="cb9-57"><a href="#cb9-57"></a></span>
+<span id="cb9-58"><a href="#cb9-58"></a><span class="fu">## ¿Qué libros le gusta a la gente?</span></span>
+<span id="cb9-59"><a href="#cb9-59"></a></span>
+<span id="cb9-60"><a href="#cb9-60"></a>Empezaremos con un gráfico de burbujas para observar qué libros han tenido más éxito, obteniendo mayores notas medias.</span>
+<span id="cb9-61"><a href="#cb9-61"></a></span>
+<span id="cb9-64"><a href="#cb9-64"></a><span class="in">```{r}</span></span>
+<span id="cb9-65"><a href="#cb9-65"></a>burbujas <span class="ot">&lt;-</span> goodreads <span class="sc">%&gt;%</span> </span>
+<span id="cb9-66"><a href="#cb9-66"></a>  <span class="fu">mutate</span> (<span class="at">anio =</span> <span class="fu">str_extract</span>(publication_date, <span class="st">"</span><span class="sc">\\</span><span class="st">d{4}$"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-67"><a href="#cb9-67"></a>  <span class="fu">drop_na</span> () <span class="sc">%&gt;%</span> </span>
+<span id="cb9-68"><a href="#cb9-68"></a>  <span class="fu">arrange</span> (<span class="fu">desc</span>(average_rating)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-69"><a href="#cb9-69"></a>  <span class="fu">filter</span> (average_rating <span class="sc">&gt;=</span> <span class="fl">4.65</span>)</span>
+<span id="cb9-70"><a href="#cb9-70"></a></span>
+<span id="cb9-71"><a href="#cb9-71"></a>p <span class="ot">&lt;-</span> burbujas <span class="sc">%&gt;%</span></span>
+<span id="cb9-72"><a href="#cb9-72"></a>  <span class="fu">mutate</span> (<span class="at">language_code =</span> <span class="fu">factor</span>(language_code, <span class="at">levels =</span> <span class="fu">unique</span>(language_code))) <span class="sc">%&gt;%</span></span>
+<span id="cb9-73"><a href="#cb9-73"></a>  <span class="fu">mutate</span> (<span class="at">text =</span> <span class="fu">paste</span>(<span class="st">"Libro: "</span>, title,</span>
+<span id="cb9-74"><a href="#cb9-74"></a>                       <span class="st">"</span><span class="sc">\n</span><span class="st">Idioma: "</span>, language_code, </span>
+<span id="cb9-75"><a href="#cb9-75"></a>                       <span class="st">"</span><span class="sc">\n</span><span class="st">Nota: "</span>, average_rating, </span>
+<span id="cb9-76"><a href="#cb9-76"></a>                       <span class="st">"</span><span class="sc">\n</span><span class="st">Año: "</span>, anio, </span>
+<span id="cb9-77"><a href="#cb9-77"></a>                       <span class="st">"</span><span class="sc">\n</span><span class="st">Número de votos: "</span>, </span>
+<span id="cb9-78"><a href="#cb9-78"></a>                       ratings_count, <span class="at">sep=</span><span class="st">""</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-79"><a href="#cb9-79"></a>  <span class="fu">ggplot</span> (<span class="fu">aes</span>(<span class="at">x =</span> anio, <span class="at">y =</span> average_rating, <span class="at">size =</span> ratings_count, <span class="at">color =</span> language_code, <span class="at">text=</span>text)) <span class="sc">+</span></span>
+<span id="cb9-80"><a href="#cb9-80"></a>    <span class="fu">geom_point</span> (<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb9-81"><a href="#cb9-81"></a>    <span class="fu">scale_size</span> (<span class="at">range =</span> <span class="fu">c</span>(<span class="fl">1.4</span>, <span class="dv">19</span>), <span class="at">name =</span> <span class="st">"Nº votos"</span>) <span class="sc">+</span></span>
+<span id="cb9-82"><a href="#cb9-82"></a>    <span class="fu">scale_color_viridis</span> (<span class="at">discrete =</span> <span class="cn">TRUE</span>, <span class="at">guide =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb9-83"><a href="#cb9-83"></a>    <span class="fu">theme_ipsum</span> () <span class="sc">+</span></span>
+<span id="cb9-84"><a href="#cb9-84"></a>    <span class="fu">theme</span> (<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb9-85"><a href="#cb9-85"></a>  <span class="fu">labs</span> (<span class="at">title =</span> <span class="st">"Libros con mejor media"</span>,</span>
+<span id="cb9-86"><a href="#cb9-86"></a>        <span class="at">x =</span> <span class="st">"Año"</span>, <span class="at">y =</span> <span class="st">"Nota media"</span>)</span>
+<span id="cb9-87"><a href="#cb9-87"></a></span>
+<span id="cb9-88"><a href="#cb9-88"></a>pp <span class="ot">&lt;-</span> <span class="fu">ggplotly</span> (p, <span class="at">tooltip=</span><span class="st">"text"</span>) </span>
+<span id="cb9-89"><a href="#cb9-89"></a></span>
+<span id="cb9-90"><a href="#cb9-90"></a>pp</span>
+<span id="cb9-91"><a href="#cb9-91"></a><span class="in">```</span></span>
+<span id="cb9-92"><a href="#cb9-92"></a></span>
+<span id="cb9-93"><a href="#cb9-93"></a>Codigo inspirado en <span class="co">[</span><span class="ot">este</span><span class="co">](https://r-graph-gallery.com/bubble_chart_interactive_ggplotly.html)</span>.</span>
+<span id="cb9-94"><a href="#cb9-94"></a></span>
+<span id="cb9-95"><a href="#cb9-95"></a>Como se puede observar, muchos libros con una puntuación de 5 sobre 5 tienen muy pocas reviews, por lo que vamos a descartarlos y poner un mínimo de 10.000  reviews para elaborar un top 10 más preciso. También eliminaremos las sagas para centrarnos únicamente en libros individuales.</span>
+<span id="cb9-96"><a href="#cb9-96"></a></span>
+<span id="cb9-99"><a href="#cb9-99"></a><span class="in">```{r}</span></span>
+<span id="cb9-100"><a href="#cb9-100"></a>top_libros <span class="ot">&lt;-</span> goodreads <span class="sc">%&gt;%</span> </span>
+<span id="cb9-101"><a href="#cb9-101"></a>  <span class="fu">filter</span> (ratings_count <span class="sc">&gt;=</span> <span class="dv">10000</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-102"><a href="#cb9-102"></a>  <span class="fu">filter</span> (<span class="sc">!</span><span class="fu">str_detect</span>(title, <span class="fu">regex</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">bset</span><span class="sc">\\</span><span class="st">b"</span>, <span class="at">ignore_case =</span> <span class="cn">TRUE</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-103"><a href="#cb9-103"></a>  <span class="fu">filter</span> (<span class="sc">!</span><span class="fu">str_detect</span>(title, <span class="fu">regex</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">bcollection</span><span class="sc">\\</span><span class="st">b"</span>, <span class="at">ignore_case =</span> <span class="cn">TRUE</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-104"><a href="#cb9-104"></a>  <span class="fu">select</span> (title, authors, average_rating) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-105"><a href="#cb9-105"></a>  <span class="fu">arrange</span> (<span class="fu">desc</span>(average_rating)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-106"><a href="#cb9-106"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span>
+<span id="cb9-107"><a href="#cb9-107"></a></span>
+<span id="cb9-108"><a href="#cb9-108"></a>DT<span class="sc">::</span><span class="fu">datatable</span>(top_libros)</span>
+<span id="cb9-109"><a href="#cb9-109"></a><span class="in">```</span></span>
+<span id="cb9-110"><a href="#cb9-110"></a></span>
+<span id="cb9-111"><a href="#cb9-111"></a>Podemos observar que la saga "Calvin and Hobbes" de Bill Watterson tiene un gran éxito en Goodreads y que la mayoría de libros en el top son cómics o mangas. Además, aparecen sagas muy conocidas como "Harry Potter" y "El señor de los anillos".</span>
+<span id="cb9-112"><a href="#cb9-112"></a></span>
+<span id="cb9-113"><a href="#cb9-113"></a>---</span>
+<span id="cb9-114"><a href="#cb9-114"></a></span>
+<span id="cb9-115"><a href="#cb9-115"></a><span class="fu">## ¿Quién debería escribir nuestro libro?</span></span>
+<span id="cb9-116"><a href="#cb9-116"></a></span>
+<span id="cb9-117"><a href="#cb9-117"></a>Para continuar formando el mejor libro, vamos a ver qué autores tienen mejor nota media filtrando también con más de 10.000 reviews y que sean libros individuales.</span>
+<span id="cb9-118"><a href="#cb9-118"></a></span>
+<span id="cb9-121"><a href="#cb9-121"></a><span class="in">```{r}</span></span>
+<span id="cb9-122"><a href="#cb9-122"></a>top_autores <span class="ot">&lt;-</span> goodreads <span class="sc">%&gt;%</span> </span>
+<span id="cb9-123"><a href="#cb9-123"></a>  <span class="fu">filter</span> (ratings_count <span class="sc">&gt;=</span> <span class="dv">10000</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-124"><a href="#cb9-124"></a>  <span class="fu">filter</span> (<span class="sc">!</span><span class="fu">str_detect</span>(title, <span class="fu">regex</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">bset</span><span class="sc">\\</span><span class="st">b"</span>, <span class="at">ignore_case =</span> <span class="cn">TRUE</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-125"><a href="#cb9-125"></a>  <span class="fu">filter</span> (<span class="sc">!</span><span class="fu">str_detect</span>(title, <span class="fu">regex</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">bcollection</span><span class="sc">\\</span><span class="st">b"</span>, <span class="at">ignore_case =</span> <span class="cn">TRUE</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-126"><a href="#cb9-126"></a>  <span class="fu">group_by</span> (authors) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-127"><a href="#cb9-127"></a>  <span class="fu">summarise</span> (<span class="at">nota_media =</span> <span class="fu">weighted.mean</span>(average_rating, <span class="at">w =</span> ratings_count)) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-128"><a href="#cb9-128"></a>  <span class="fu">arrange</span> (<span class="fu">desc</span>(nota_media)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-129"><a href="#cb9-129"></a>  <span class="fu">head</span> (<span class="dv">10</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-130"><a href="#cb9-130"></a>  <span class="fu">mutate</span> (<span class="at">autores =</span> <span class="fu">str_trunc</span>(authors, <span class="dv">20</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-131"><a href="#cb9-131"></a>  <span class="fu">ungroup</span> ()</span>
+<span id="cb9-132"><a href="#cb9-132"></a></span>
+<span id="cb9-133"><a href="#cb9-133"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span> (top_autores, <span class="fu">aes</span>(<span class="at">x =</span> nota_media, <span class="at">y =</span> <span class="fu">reorder</span>(autores, nota_media))) <span class="sc">+</span> </span>
+<span id="cb9-134"><a href="#cb9-134"></a>  <span class="fu">geom_col</span> (<span class="at">fill =</span> <span class="st">"#7831a2"</span>) <span class="sc">+</span></span>
+<span id="cb9-135"><a href="#cb9-135"></a>  <span class="fu">coord_cartesian</span> (<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">5</span>)) <span class="sc">+</span></span>
+<span id="cb9-136"><a href="#cb9-136"></a>  <span class="fu">labs</span> (<span class="at">title =</span> <span class="st">"Autores con mejor media"</span>, </span>
+<span id="cb9-137"><a href="#cb9-137"></a>        <span class="at">x =</span> <span class="st">"Nota media"</span>, <span class="at">y =</span> <span class="st">"Autores"</span>)</span>
+<span id="cb9-138"><a href="#cb9-138"></a></span>
+<span id="cb9-139"><a href="#cb9-139"></a>p2</span>
+<span id="cb9-140"><a href="#cb9-140"></a><span class="in">```</span></span>
+<span id="cb9-141"><a href="#cb9-141"></a></span>
+<span id="cb9-142"><a href="#cb9-142"></a>Se puede observar, como se esperaba al ver el top 10 de libros, que el autor con mejor nota media es Bill Watterson. Aunque también podemos ver a Neil Gaiman en tres posiciones diferentes del top, al tratarse de él junto a muchos otros autores, preferimos quedarnos con B. Watterson para que se trate únicamente de un autor.</span>
+<span id="cb9-143"><a href="#cb9-143"></a></span>
+<span id="cb9-144"><a href="#cb9-144"></a>---</span>
+<span id="cb9-145"><a href="#cb9-145"></a></span>
+<span id="cb9-146"><a href="#cb9-146"></a><span class="fu">## ¿Cuántas páginas debe tener nuestro libro?</span></span>
+<span id="cb9-147"><a href="#cb9-147"></a></span>
+<span id="cb9-148"><a href="#cb9-148"></a>Ahora, vamos a ver cómo de largo tiene que ser nuestro libro basándonos en las reviews de la gente.</span>
+<span id="cb9-149"><a href="#cb9-149"></a></span>
+<span id="cb9-152"><a href="#cb9-152"></a><span class="in">```{r}</span></span>
+<span id="cb9-153"><a href="#cb9-153"></a>p3 <span class="ot">&lt;-</span> goodreads <span class="sc">%&gt;%</span> </span>
+<span id="cb9-154"><a href="#cb9-154"></a>  <span class="fu">mutate</span> (<span class="at">rang_pag =</span> <span class="fu">round</span>(num_pages <span class="sc">/</span> <span class="dv">25</span>) <span class="sc">*</span> <span class="dv">25</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-155"><a href="#cb9-155"></a>  <span class="fu">group_by</span> (rang_pag) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-156"><a href="#cb9-156"></a>  <span class="fu">summarise</span> (<span class="at">notita =</span> <span class="fu">weighted.mean</span>(average_rating, <span class="at">w =</span> ratings_count)) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-157"><a href="#cb9-157"></a>  <span class="fu">ggplot</span> (<span class="fu">aes</span>(<span class="at">x =</span> rang_pag, <span class="at">y =</span> notita)) <span class="sc">+</span></span>
+<span id="cb9-158"><a href="#cb9-158"></a>  <span class="fu">geom_area</span> (<span class="at">fill =</span> <span class="st">"#7831a2"</span>) <span class="sc">+</span> </span>
+<span id="cb9-159"><a href="#cb9-159"></a>  <span class="fu">coord_cartesian</span> (<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1500</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">5</span>)) <span class="sc">+</span></span>
+<span id="cb9-160"><a href="#cb9-160"></a>  <span class="fu">labs</span> (<span class="at">title =</span> <span class="st">"Nota media por cada 50 páginas"</span>,</span>
+<span id="cb9-161"><a href="#cb9-161"></a>       <span class="at">x =</span> <span class="st">"Número de páginas"</span>, <span class="at">y =</span> <span class="st">"Nota Media"</span>)</span>
+<span id="cb9-162"><a href="#cb9-162"></a></span>
+<span id="cb9-163"><a href="#cb9-163"></a>p3</span>
+<span id="cb9-164"><a href="#cb9-164"></a><span class="in">```</span></span>
+<span id="cb9-165"><a href="#cb9-165"></a></span>
+<span id="cb9-166"><a href="#cb9-166"></a>Codigo inspirado de <span class="co">[</span><span class="ot">aquí</span><span class="co">](https://r-graph-gallery.com)</span>.</span>
+<span id="cb9-167"><a href="#cb9-167"></a></span>
+<span id="cb9-168"><a href="#cb9-168"></a>Podemos ver que el rango de mejores reviews está entorno a las 1.300 páginas por lo que nuestro libro tendrá que situarse en ese rango.</span>
+<span id="cb9-169"><a href="#cb9-169"></a></span>
+<span id="cb9-170"><a href="#cb9-170"></a>---</span>
+<span id="cb9-171"><a href="#cb9-171"></a></span>
+<span id="cb9-172"><a href="#cb9-172"></a><span class="fu">## ¿En qué idioma debería estar nuestro libro?</span></span>
+<span id="cb9-173"><a href="#cb9-173"></a></span>
+<span id="cb9-174"><a href="#cb9-174"></a>Por último, queremos echar un vistazo a qué idiomas reciben mejores reviews para decidir en qué idioma debería escribirse nuestro libro para que sea el mejor. </span>
+<span id="cb9-175"><a href="#cb9-175"></a>Para ello, realizaremos un gráfico de violín unificando todos los diferentes códigos de inglés para que cuenten como uno solo y filtrando los diez idiomas con mejor nota media.</span>
+<span id="cb9-176"><a href="#cb9-176"></a></span>
+<span id="cb9-179"><a href="#cb9-179"></a><span class="in">```{r}</span></span>
+<span id="cb9-180"><a href="#cb9-180"></a>top_idioma <span class="ot">&lt;-</span> goodreads <span class="sc">%&gt;%</span> </span>
+<span id="cb9-181"><a href="#cb9-181"></a>  <span class="fu">mutate</span> (<span class="at">language_code =</span> <span class="fu">fct_collapse</span>(language_code,</span>
+<span id="cb9-182"><a href="#cb9-182"></a>    <span class="st">"eng"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"eng"</span>, <span class="st">"en-GB"</span>, <span class="st">"en-US"</span>, <span class="st">"en-CA"</span>, <span class="st">"enm"</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-183"><a href="#cb9-183"></a>  <span class="fu">group_by</span> (language_code) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-184"><a href="#cb9-184"></a>  <span class="fu">summarise</span> (<span class="at">media =</span> <span class="fu">weighted.mean</span>(average_rating, <span class="at">w =</span> ratings_count)) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-185"><a href="#cb9-185"></a>  <span class="fu">arrange</span> (<span class="fu">desc</span>(media)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-186"><a href="#cb9-186"></a>  <span class="fu">head</span> (<span class="dv">10</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-187"><a href="#cb9-187"></a>  <span class="fu">pull</span>(language_code) </span>
+<span id="cb9-188"><a href="#cb9-188"></a></span>
+<span id="cb9-189"><a href="#cb9-189"></a>p4 <span class="ot">&lt;-</span> goodreads <span class="sc">%&gt;%</span> </span>
+<span id="cb9-190"><a href="#cb9-190"></a>  <span class="fu">mutate</span> (<span class="at">language_code =</span> <span class="fu">fct_collapse</span>(language_code,</span>
+<span id="cb9-191"><a href="#cb9-191"></a>    <span class="st">"eng"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"eng"</span>, <span class="st">"en-GB"</span>, <span class="st">"en-US"</span>, <span class="st">"en-CA"</span>, <span class="st">"enm"</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-192"><a href="#cb9-192"></a>  <span class="fu">filter</span> (language_code <span class="sc">%in%</span> top_idioma) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-193"><a href="#cb9-193"></a>  <span class="fu">ggplot</span> (<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(language_code, <span class="sc">-</span>average_rating), <span class="at">y =</span> average_rating)) <span class="sc">+</span> </span>
+<span id="cb9-194"><a href="#cb9-194"></a>  <span class="fu">geom_violin</span> (<span class="at">fill =</span> <span class="st">"#7831a2"</span>) <span class="sc">+</span></span>
+<span id="cb9-195"><a href="#cb9-195"></a>  <span class="fu">coord_cartesian</span> (<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">5</span>)) <span class="sc">+</span></span>
+<span id="cb9-196"><a href="#cb9-196"></a>  <span class="fu">labs</span> (<span class="at">title =</span> <span class="st">"Nota media por idiomas"</span>,</span>
+<span id="cb9-197"><a href="#cb9-197"></a>       <span class="at">x =</span> <span class="st">"Idioma"</span>, <span class="at">y =</span> <span class="st">"Nota Media"</span>)</span>
+<span id="cb9-198"><a href="#cb9-198"></a></span>
+<span id="cb9-199"><a href="#cb9-199"></a>p4</span>
+<span id="cb9-200"><a href="#cb9-200"></a><span class="in">```</span></span>
+<span id="cb9-201"><a href="#cb9-201"></a></span>
+<span id="cb9-202"><a href="#cb9-202"></a>Codigo inspirado de <span class="co">[</span><span class="ot">aquí</span><span class="co">](https://r-graph-gallery.com/267-reorder-a-variable-in-ggplot2.html)</span>.</span>
+<span id="cb9-203"><a href="#cb9-203"></a></span>
+<span id="cb9-204"><a href="#cb9-204"></a>Se puede observar que el idioma con mejor nota media es el chino. Sin embargo, para comprobar si realmente este idioma tiene tantos lectores potenciales, analizaremos cuáles son los idiomas más hablados.</span>
+<span id="cb9-205"><a href="#cb9-205"></a></span>
+<span id="cb9-208"><a href="#cb9-208"></a><span class="in">```{r}</span></span>
+<span id="cb9-209"><a href="#cb9-209"></a>top_hablantes <span class="ot">&lt;-</span> hablantes <span class="sc">%&gt;%</span> </span>
+<span id="cb9-210"><a href="#cb9-210"></a>  <span class="fu">mutate</span> (<span class="at">porcentaje =</span> ((<span class="st">`</span><span class="at">Total Speakers</span><span class="st">`</span>)<span class="sc">/</span><span class="fu">sum</span>(<span class="st">`</span><span class="at">Total Speakers</span><span class="st">`</span>))<span class="sc">*</span><span class="dv">100</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-211"><a href="#cb9-211"></a>  <span class="fu">select</span> (Language, porcentaje) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-212"><a href="#cb9-212"></a>  <span class="fu">arrange</span> (<span class="fu">desc</span>(porcentaje)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-213"><a href="#cb9-213"></a>  <span class="fu">head</span> (<span class="dv">10</span>) </span>
+<span id="cb9-214"><a href="#cb9-214"></a></span>
+<span id="cb9-215"><a href="#cb9-215"></a><span class="fu">hchart</span>(top_hablantes, <span class="st">"pie"</span>, <span class="fu">hcaes</span>(<span class="at">x =</span> Language, <span class="at">y =</span> porcentaje))</span>
+<span id="cb9-216"><a href="#cb9-216"></a><span class="in">```</span></span>
+<span id="cb9-217"><a href="#cb9-217"></a></span>
+<span id="cb9-218"><a href="#cb9-218"></a>Este gráfico nos muestra que el chino es el segundo idioma más hablado, con muy poca diferencia respecto al primer puesto, que corresponde al inglés. Por lo tanto, escribiendo el libro en chino sí podríamos llegar a una audiencia muy amplia.</span>
+<span id="cb9-219"><a href="#cb9-219"></a></span>
+<span id="cb9-220"><a href="#cb9-220"></a>De esta manera, ¡¡hemos conseguido definir cómo debería ser el **mejor libro del mundo**!! </span>
+<span id="cb9-221"><a href="#cb9-221"></a>Este debería ser un cómic o manga escrito por Bill Watterson, en chino, y de unas 1.300 páginas. </span>
+<span id="cb9-222"><a href="#cb9-222"></a></span>
+<span id="cb9-223"><a href="#cb9-223"></a>----------------------</span>
+<span id="cb9-224"><a href="#cb9-224"></a></span>
+<span id="cb9-225"><a href="#cb9-225"></a>¡Y hasta aquí mi trabajo de Big Data, espero que os haya gustado!</span>
+<span id="cb9-226"><a href="#cb9-226"></a></span>
+<span id="cb9-227"><a href="#cb9-227"></a><span class="al">![Una foto mía](./imagenes/descarga2.jpg)</span></span>
 </code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
@@ -1011,13 +1094,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
 <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/<tu-usuario-github>">
+    <a class="nav-link" href="https://github.com/lbellidoa">
       <i class="bi bi-github" role="img">
 </i> 
     </a>
   </li>  
     <li class="nav-item compact">
-    <a class="nav-link" href="mailto:<lubea2@alumni.uv.es">
+    <a class="nav-link" href="mailto:lbellidoalegre@gmail.com">
       <i class="bi bi-envelope" role="img">
 </i> 
     </a>
